@@ -25,9 +25,6 @@ This guide will (for now) focus on traditional packaging, not so much about cont
 ### Fedora
 * [Fedora Packaging Guidelines](https://docs.fedoraproject.org/en-US/packaging-guidelines/)
 
-### RPM
-* [RPM Packaging Guide](https://rpm-packaging-guide.github.io/)
-
 ### openSUSE
 Start by creating an account on:
 * the issue tracker: https://bugzilla.opensuse.org/
@@ -36,6 +33,20 @@ Start by creating an account on:
 Then follow along the [Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial). Read the [openSUSE Packaging Guidelines](https://en.opensuse.org/openSUSE:Packaging_guidelines).
 And bookmark the [Packaging documentation on the openSUSE wiki](https://en.opensuse.org/Category:Packaging_documentation) which you will need occasionally to look things up.
 I also recommend to read the general [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
+Read the RPM section of this readme as well.
+
+### RPM
+* [RPM Packaging Guide](https://rpm-packaging-guide.github.io/)
+
+#### Snippets and tricks
+
+Since rpm 4.18 you can find the parsed and expanded spec file in the src.rpm headers.
+This can be useful to know which values are actually used, what the macros were expanded to.
+Generally what the actual build recipe looked like.
+
+```
+rpm -q --queryformat="%{Spec}" /path/to/src.rpm
+```
 
 ## Tools
 * [quilt](http://savannah.nongnu.org/projects/quilt)
