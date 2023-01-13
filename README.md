@@ -87,9 +87,41 @@ rpm -q --queryformat="%{Spec}" /path/to/src.rpm
 ```
 
 ## Tools
-* [quilt](http://savannah.nongnu.org/projects/quilt)
-* [wiggle](http://neil.brown.name/wiggle/)
-* [diff](tools/diff.md)
-* [patch](tools/patch.md)
-* [meld](tools/meld.md)
-* git
+
+### diff
+Diff is a command line tool for comparing two files or directories.
+
+##### Example
+
+We have an upstream tarball and want to create a patch with some changes:
+
+```
+tar xfv upstream-version.tar.gz
+cp -r upstream-version upstream-version.new
+vi upstream-version.new/Makefile upstream-version.new/main.c
+diff -urEbw upstream-version upstream-version.new > my.patch
+```
+
+### patch
+Patch is a command line tool that applies a diff output file (patch) to an original file.
+
+One important parameter is `-p` which strips leading slashes, basically ignoring parts of the path.
+
+For patches created by git you will usually use `-p1` to apply them.
+
+## Example
+
+```
+patch < my.patch
+```
+
+### wiggle
+[wiggle](https://github.com/neilbrown/wiggle/) applies rejected patches and performs word-wise diffs.
+
+### quilt
+[quilt](http://savannah.nongnu.org/projects/quilt) is a tool for managing many patches.
+
+### meld
+[Meld](https://meldmerge.org/) is a GUI tool for comparing two files or directories.
+It also let's you easily merge changes.
+
