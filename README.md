@@ -35,6 +35,8 @@ And bookmark the [Packaging documentation on the openSUSE wiki](https://en.opens
 I also recommend to read the general [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
 Read the RPM section of this readme as well.
 
+Our [openSUSE cheat sheet](cheatsheet/openSUSE.md).
+
 ### RPM
 * [RPM Packaging Guide](https://rpm-packaging-guide.github.io/)
 
