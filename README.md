@@ -34,7 +34,7 @@ Start by creating an account on:
 * the openSUSE Open Build Service (OBS): https://build.opensuse.org/
 
 Then follow along the [Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial). Read the [openSUSE Packaging Guidelines](https://en.opensuse.org/openSUSE:Packaging_guidelines). And learn how to write a [ChangeLog](https://en.opensuse.org/openSUSE:Creating_a_changes_file_(RPM)).
-And bookmark the [Packaging documentation on the openSUSE wiki](https://en.opensuse.org/Category:Packaging_documentation) which you will need occasionally to look things up.
+And bookmark the [Packaging documentation on the openSUSE wiki](https://en.opensuse.org/Category:Packaging_documentation) which you will need occasionally to look things up. There is also an entry in the openSUSE wiki about [Build Service Tips and Tricks](https://en.opensuse.org/openSUSE:Build_Service_Tips_and_Tricks).
 I also recommend to read the general [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
 Read the RPM section of this readme as well.
 
