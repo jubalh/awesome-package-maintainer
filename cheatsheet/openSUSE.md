@@ -55,8 +55,29 @@ vi awesomenewpackage.spec
 oscsd
 # write the changelog
 osc vc
-# commit
+# commit it to your home
 osc ci
 # submit to a devel project
 osc sr utilities
 ```
+
+### Making changes to an existing project
+
+```
+# branch the package. getpac will branch from the actual devel project automatically
+# getpac is a combination of `osc branch` and `osc checkout`
+osc getpac openSUSE:Factory profanity
+# change dir. the corresponding dir will be printing out for you in the last step
+cd home:jubalh:branches:network:messaging:xmpp/profanity
+# make changes
+vi *.spec
+# build it
+oscb
+# describe your change so that others can understand it
+osc vc
+# commit it to your branched version
+osc ci
+# submit it to the devel repo
+osc sr
+```
+
