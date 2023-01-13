@@ -19,10 +19,26 @@ Add some useful tools which will be available in the chroot (`osc chroot`):
 extra-pkgs = vim gdb strace less unzip
 ```
 
-Some useful aliases for your bashrc/zshrc etc:
+Some useful aliases for your bashrc/zshrc etc. If you use `grc` you could add this as well.
 ```
 alias oscb="osc build --ccache --cpio-bulk-download --download-api-only"
 alias oscsd="osc service localrun download_files"
+```
+
+So you don't have to provide a password each time you build a package you should add yourself to the sudoers file:
+
+```
+# general file /etc/sudoers
+sudo visudo
+# or specific file which will be included in /etc/sudoers via `@includedir /etc/sudoers.d`
+sudo visudo /etc/sudoers.d/username
+```
+
+With following content:
+
+```
+yourusername ALL = NOPASSWD: /usr/bin/build
+yourusername ALL = NOPASSWD: /usr/bin/osc
 ```
 
 ## Workflow example
