@@ -1,5 +1,7 @@
 # openSUSE Cheat Sheet
 
+Install `grc` to have more readable output when building with `grc osc build`.
+
 ## osc configuration
 Configure osc `$EDITOR $HOME/.config/osc/oscrc`.
 
