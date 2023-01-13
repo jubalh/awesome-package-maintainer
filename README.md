@@ -69,7 +69,7 @@ rpm -q --queryformat="%{Spec}" /path/to/src.rpm
 ## Tools
 * [quilt](http://savannah.nongnu.org/projects/quilt)
 * [wiggle](http://neil.brown.name/wiggle/)
-* diff
+* [diff](tools/diff.md)
 * patch
-* meld
+* [meld](tools/meld.md)
 * git
