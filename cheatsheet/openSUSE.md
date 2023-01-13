@@ -1,6 +1,8 @@
 # openSUSE Cheat Sheet
 
-Install `grc` to have more readable output when building with `grc osc build`.
+Install
+* [grc](https://github.com/garabik/grc) (`zypper in grc`) to have more readable output when building with `grc osc build`.
+* [spec-cleaner](https://github.com/rpm-software-management/spec-cleaner) (`zypper in spec-cleaner`) to clean the spec file according to the style guide.
 
 ## osc configuration
 Configure osc `$EDITOR $HOME/.config/osc/oscrc`.
