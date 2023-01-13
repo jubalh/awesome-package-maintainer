@@ -125,3 +125,10 @@ patch < my.patch
 [Meld](https://meldmerge.org/) is a GUI tool for comparing two files or directories.
 It also let's you easily merge changes.
 
+### grep, ack, ag
+These are tools to search in files. `grep` is the oldest of them.
+`ack` is faster since it skips some directories like the `.git` and `.subversion` directories by default.
+Useful for developers and maintainers. It can also search only specific file types.
+For example `ack --cc close` searches all C files for the word `close`.
+`ag` is yet a little faster than ack and ignores files mentioned in `.gitignore`. Additionally it can search compressed files.
+
