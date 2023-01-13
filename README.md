@@ -1,6 +1,9 @@
 # Awesome Package Maintainer
 *or How To Become A Packager*
 
+***WIP*** I'm not yet sure how to organize this.
+Let's collect all information now. We can still reorganize and restructure later.
+
 This should become a list with awesome tools, tricks, tips, howtos for (Linux) package maintainers.
 This guide will (for now) focus on traditional packaging, not so much about containerized applications.
 
