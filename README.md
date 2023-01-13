@@ -29,12 +29,18 @@ This guide will (for now) focus on traditional packaging, not so much about cont
 * [RPM Packaging Guide](https://rpm-packaging-guide.github.io/)
 
 ### openSUSE
-* [Open Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial)
-* [openSUSE Packaging Guidelines](https://en.opensuse.org/openSUSE:Packaging_guidelines)
-* [Packaging documentation on the openSUSE wiki](https://en.opensuse.org/Category:Packaging_documentation)
+Start by creating an account on:
+* the issue tracker: https://bugzilla.opensuse.org/
+* the openSUSE Open Build Service (OBS): https://build.opensuse.org/
+
+Then follow along the [Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial). Read the [openSUSE Packaging Guidelines](https://en.opensuse.org/openSUSE:Packaging_guidelines).
+And bookmark the [Packaging documentation on the openSUSE wiki](https://en.opensuse.org/Category:Packaging_documentation) which you will need occasionally to look things up.
+I also recommend to read the general [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
 
 ## Tools
 * [quilt](http://savannah.nongnu.org/projects/quilt)
 * [wiggle](http://neil.brown.name/wiggle/)
-* diff and patch
+* diff
+* patch
+* meld
 * git
