@@ -40,6 +40,19 @@ Read the RPM section of this readme as well.
 
 #### Snippets and tricks
 
+##### List files in a package
+
+```
+rpm -ql vim
+```
+
+##### Find out which package owns a particular file
+
+```
+rpm -qf /usr/bin/vim
+```
+
+##### Get expanded spec file from src.rpm
 Since rpm 4.18 you can find the parsed and expanded spec file in the src.rpm headers.
 This can be useful to know which values are actually used, what the macros were expanded to.
 Generally what the actual build recipe looked like.
