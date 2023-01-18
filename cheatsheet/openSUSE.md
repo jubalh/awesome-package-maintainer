@@ -112,3 +112,7 @@ libstrophe :
    xmppc
 ```
 
+### Scripts
+* [changesgen](https://github.com/dirkmueller/changesgen/blob/main/changesgen.py) automates writing a changes file.
+* [autoup](https://github.com/dirkmueller/changesgen/blob/main/autoup.py) searches on repology and tests whether updating to those would work
+
