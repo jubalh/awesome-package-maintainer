@@ -112,7 +112,7 @@ One important parameter is `-p` which strips leading slashes, basically ignoring
 
 For patches created by git you will usually use `-p1` to apply them.
 
-## Example
+#### Example
 
 ```
 patch < my.patch
