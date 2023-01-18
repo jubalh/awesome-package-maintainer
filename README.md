@@ -7,6 +7,16 @@ Let's collect all information now. We can still reorganize and restructure later
 This should become a list with awesome tools, tricks, tips, howtos for (Linux) package maintainers.
 This guide will (for now) focus on traditional packaging, not so much about containerized applications.
 
+## TODO
+Cover:
+* debug symbols
+* debuginfod
+* coredumb
+
+Add examples of:
+* quilt
+* wiggle
+
 # What does it entail to be a packager?
 
 * Packaging software from scratch (creating build recipe, a deb rpm ebuild and so on).
