@@ -155,5 +155,15 @@ backtrace
 
 ```
 lsof -c vim
+vim-nox11 17582 user  cwd    DIR   0,43       82 6826592 /home/user/awesome-package-maintainer
+vim-nox11 17582 user    5u   REG   0,43    16384 7061198 /home/user/awesome-package-maintainer/.README.md.swp
+```
+
+### ldd
+ldd lists the shared libraries required by a program.
+
+```
+ldd ./src/myprog
+	libcurl.so.4 => /lib64/libcurl.so.4 (0x00007f36e4297000)
 ```
 
