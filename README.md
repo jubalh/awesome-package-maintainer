@@ -61,7 +61,9 @@ Start by creating an account on:
 * the issue tracker: https://bugzilla.opensuse.org/
 * the openSUSE Open Build Service (OBS): https://build.opensuse.org/
 
-* Use the [Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial). Read the [openSUSE Packaging Guidelines](https://en.opensuse.org/openSUSE:Packaging_guidelines) as an introduction.
+
+* Use the [Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial) as an introduction.
+* Read the [openSUSE Packaging Guidelines](https://en.opensuse.org/openSUSE:Packaging_guidelines).
 * Learn how to write a [ChangeLog](https://en.opensuse.org/openSUSE:Creating_a_changes_file_(RPM)).
 * Bookmark and skim through [Packaging documentation on the openSUSE wiki](https://en.opensuse.org/Category:Packaging_documentation) 
 * Read about [Build Service Tips and Tricks](https://en.opensuse.org/openSUSE:Build_Service_Tips_and_Tricks)
@@ -69,7 +71,7 @@ Start by creating an account on:
 * Read the general [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
 * Read the RPM section of this readme as well.
 
-Our [openSUSE cheat sheet](cheatsheet/openSUSE.md).
+Check our [openSUSE cheat sheet](cheatsheet/openSUSE.md) for tips, tricks and tools.
 
 ### RPM
 * [RPM Packaging Guide](https://rpm-packaging-guide.github.io/)
