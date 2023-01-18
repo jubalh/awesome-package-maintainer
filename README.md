@@ -179,3 +179,6 @@ ldd ./src/myprog
 
 ### readelf and objdump
 They display information about object files and can be used to view an executable in assembly.
+
+## Scripts and helpers
+* [release-notes-scraper](https://github.com/dcermak/release-notes-scraper) - grab the release notes for projects from github that do not keep a CHANGELOG, but publish their release notes via the releases page.
