@@ -41,8 +41,8 @@ Here are some ways how you can monitor a project or get notified about new relea
 * Use [nvchecker](https://github.com/lilydjwg/nvchecker).
 * Monitor their websites via [urlwatch](https://thp.io/2008/urlwatch/).
 * Use the website [fresh code](https://freshcode.club/).
-* Use the website [release monitoring](https://release-monitoring.org/) by RedHat.
-* Use the website [releasemonitoring](https://newreleases.io/).
+* Use the website [newreleases](https://newreleases.io/).
+* Use the website [release monitoring](https://release-monitoring.org/).
 
 To get an overview of which distro ships which version of a particular software we like to use [repology](https://repology.org/). For example see this [overview](https://repology.org/project/profanity/versions).
 
