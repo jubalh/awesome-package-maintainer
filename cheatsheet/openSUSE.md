@@ -88,3 +88,27 @@ In case you want to develop on the program you might want a quick way to get all
 ```
 zypper si -d profanity
 ```
+
+### Find out which packages depend on a certain package
+Let's say you maintain the libstrophe library and want to find out which packages depend on in (in Factory on x86_64):
+
+```
+osc whatdependson openSUSE:Factory libstrophe standard x86_64
+```
+
+If you use this often you could add a function to your .bashrc:
+
+```
+whatdependson () {
+    osc whatdependson openSUSE:Factory $1 standard x86_64
+}
+```
+
+Example output:
+```
+whatdependson libstrophe
+libstrophe :
+   profanity
+   xmppc
+```
+
