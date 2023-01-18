@@ -39,6 +39,8 @@ To get an overview of which distro ships which version of a particular software 
 
 There is also [release monitoring](https://release-monitoring.org/) by RedHat.
 
+You can also watch websites via [urlwatch](https://thp.io/2008/urlwatch/).
+
 ## Distribution and system specific guides
 
 ### Debian
