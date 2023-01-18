@@ -44,6 +44,7 @@ There is also [release monitoring](https://release-monitoring.org/) by RedHat.
 ### Debian
 * [Debian New Maintainers' Guide](https://www.debian.org/doc/manuals/maint-guide/)
 * [Packaging on the Debian wiki](https://wiki.debian.org/Packaging)
+* [Debian Developer's Reference](https://www.debian.org/doc/manuals/maint-guide/index.en.html)
 
 ### Fedora
 * [Fedora Packaging Guidelines](https://docs.fedoraproject.org/en-US/packaging-guidelines/)
