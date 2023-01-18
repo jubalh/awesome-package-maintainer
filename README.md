@@ -141,3 +141,12 @@ For example `ack --cc close` searches all C files for the word `close`.
 ### strace
 [strace](https://strace.io/) monitors and tampers with interactions between processes and the kernel. Useful for watching system calls and signals.
 
+### gdb
+[gdb](https://www.gnu.org/software/gdb) is a debugger.
+
+```
+gdb myprog
+run
+backtrace
+```
+
