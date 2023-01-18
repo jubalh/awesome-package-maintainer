@@ -150,3 +150,10 @@ run
 backtrace
 ```
 
+### lsof
+[lsof](https://people.freebsd.org/~abe/) is a utility that lists open files.
+
+```
+lsof -c vim
+```
+
