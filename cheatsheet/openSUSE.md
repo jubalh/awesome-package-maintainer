@@ -81,3 +81,10 @@ osc ci
 osc sr
 ```
 
+### Install all the build requirements of a package
+
+In case you want to develop on the program you might want a quick way to get all the build requirements:
+
+```
+zypper si -d profanity
+```
