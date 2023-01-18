@@ -135,3 +135,9 @@ Useful for developers and maintainers. It can also search only specific file typ
 For example `ack --cc close` searches all C files for the word `close`.
 `ag` is yet a little faster than ack and ignores files mentioned in `.gitignore`. Additionally it can search compressed files.
 
+### ltrace
+[ltrace](http://www.ltrace.org/) is a debugging program which runs a specified command until the command exits.  While the command is executing, ltrace intercepts and records both the dynamic library calls called by the executed process and the signals received by the executed process. 
+
+### strace
+[strace](https://strace.io/) monitors and tampers with interactions between processes and the kernel. Useful for watching system calls and signals.
+
