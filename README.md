@@ -167,3 +167,5 @@ ldd ./src/myprog
 	libcurl.so.4 => /lib64/libcurl.so.4 (0x00007f36e4297000)
 ```
 
+### readelf and objdump
+They display information about object files and can be used to view an executable in assembly.
