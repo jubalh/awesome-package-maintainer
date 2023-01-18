@@ -61,7 +61,7 @@ Start by creating an account on:
 * the issue tracker: https://bugzilla.opensuse.org/
 * the openSUSE Open Build Service (OBS): https://build.opensuse.org/
 
-
+Then:
 * Use the [Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial) as an introduction.
 * Read the [openSUSE Packaging Guidelines](https://en.opensuse.org/openSUSE:Packaging_guidelines).
 * Learn how to write a [ChangeLog](https://en.opensuse.org/openSUSE:Creating_a_changes_file_(RPM)).
