@@ -33,23 +33,18 @@ Add examples of:
 In a perfect world package maintainers would be in close contact with upstream.
 Monitor their development and take important bugfixes.
 
-For this purpose you should subscribe to your projects mailing list or *watch* (a button on the top right corner) them on GitHub.
-You can specify to either watch them for all their activity or at least get notified about new releases. Project with mailing lists usually have a `-announce` list so you don't get overwhelmed.
-
-Some distributions have automated ways to notify maintainers when upstream publishes a new release. For example Debian uses a [watch file](https://wiki.debian.org/debian/watch) for that.
-
-Some projects have RSS feeds on their website. If they use GitHub (and maybe Gitlab etc as well) they automatically publish an RSS feed eg. `https://github.com/profanity-im/profanity/releases.atom`.
-I use the newsboat RSS reader and each morning check for new releases via `newsboat -u ~/watchedprojects.rss`.
-
-Some people follow [fresh code](https://freshcode.club/).
-
-Another tool you can use is [nvchecker](https://github.com/lilydjwg/nvchecker).
+Here are some ways how you can monitor a project or get notified about new releases:
+* Join the `-announce` mailing list of the project.
+* *watch* the project on GitHub/GitLab (a button in the top right corner).
+* Some distributions have their own tooling that reminds you about new releases. Debian uses a [watch file](https://wiki.debian.org/debian/watch).
+* Subscribe to the projects RSS feed. If they use GitHub (and maybe Gitlab etc as well) they automatically publish an RSS feed eg. `https://github.com/profanity-im/profanity/releases.atom`. I use the newsboat RSS reader and each morning check for new releases via `newsboat -u ~/watchedprojects.rss`.
+* Use [nvchecker](https://github.com/lilydjwg/nvchecker).
+* Monitor their websites via [urlwatch](https://thp.io/2008/urlwatch/).
+* Use the website [fresh code](https://freshcode.club/).
+* Use the website [release monitoring](https://release-monitoring.org/) by RedHat.
+* Use the website [releasemonitoring](https://newreleases.io/).
 
 To get an overview of which distro ships which version of a particular software we like to use [repology](https://repology.org/). For example see this [overview](https://repology.org/project/profanity/versions).
-
-There is also [release monitoring](https://release-monitoring.org/) by RedHat.
-
-You can also watch websites via [urlwatch](https://thp.io/2008/urlwatch/).
 
 ## Distribution and system specific guides
 
