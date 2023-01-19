@@ -12,6 +12,48 @@ Cover:
 * debug symbols
 * debuginfod
 
+# Introduction
+
+## Software
+*This will not be an accurate history lesson. We just want to give readers an idea*
+
+In the early days people were sitting infront of their Slackware machine and when they wanted to install a new software they had to do this by hand.
+They got a tarball with the sources from a website, via mail(ing list), from an (FTP) server, from CVS and so on.
+They inspected the sources and learned how to build the software.
+A popular way are/were Makefiles.
+
+Let's do this now:
+```
+wget https://github.com/jubalh/nudoku/archive/refs/tags/2.1.0.tar.gz
+tar xfv 2.1.0.tar.gz
+cd nudoku-2.1.0
+autoreconf -fi
+./configure
+make
+```
+
+And at that point they got an error. Because one of the dependencies of that software was not installed. In this example that will be `ncurses`.
+
+So they had to stop the process. Go to find the sources for ncurses and compile and install that first.
+
+If that dependency has dependencies? You guessed it..
+
+## What are packages
+Linux distributions provide packages to make this process much easier. It contains the upstream source files and instructions how to build them. Listing the dependencies. Doing additional work like transforming configuration files, restart services etc.
+
+If we are using a package manager and tell it to install such a package it will install all the packages that are a dependency of this package as well.
+
+Some dependencies are needed for building the software others only for running it.
+So we have build time and run time requirements. Since we don't want huge packages we can split them. We can have an `ncurses` package and a `ncurses-devel` package.
+
+Distributions have different naming regulations regarding such packages. Some distributions don't split packages up in development files (Arch), some call them `-dev` (Debian) some call them `-devel` (openSUSE).
+
+We recommend to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) now. Even when you are not interested in becoming a packager for an RPM based distribution this will serve as a good introdcution.
+
+## What is a package maintainer
+A packager/packgage maintainer is the person who makes this magic happen.
+Thanks to them you can easily install software using your package manager eg `zypper install libreoffice`.
+
 # What does it entail to be a packager?
 
 * Packaging software from scratch (creating build recipe, a deb rpm ebuild and so on).
