@@ -13,7 +13,6 @@ Cover:
 * debuginfod
 
 Add examples of:
-* quilt
 * wiggle
 
 # What does it entail to be a packager?
@@ -161,6 +160,30 @@ patch < my.patch
 
 ### quilt
 [quilt](http://savannah.nongnu.org/projects/quilt) is a tool for managing many patches.
+
+We will use an example based on an openSUSE package. The quilt part is universal though.
+
+Check out the package and call `quilt setup` which will create a new folder with the source code:
+```
+osc bco graphics/tiff
+cd graphics tiff
+quilt setup tiff.spec
+```
+
+There might already be patches mentioned in the spec file so lets apply them and then start a new patch:
+```
+quilt push -a
+quilt new tiff-security-fix-1.patch
+```
+
+Edit the files that need fixing and create a patch:
+```
+quilt edit libtiff/tif_dirwrite.c
+quilt header -e  #at the top of the header we want some explanation/references etc
+quilt refresh
+```
+
+Now we have a new file `tiff-security-fix-1.patch` which we can apply in the spec file.
 
 ### meld
 [Meld](https://meldmerge.org/) is a GUI tool for comparing two files or directories.
