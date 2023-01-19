@@ -404,3 +404,8 @@ They display information about object files and can be used to view an executabl
 
 ## Scripts and helpers
 * [release-notes-scraper](https://github.com/dcermak/release-notes-scraper) - grab the release notes for projects from github that do not keep a CHANGELOG, but publish their release notes via the releases page.
+
+## Credit
+Thanks to everybody who contributed to this guide and to the authors of all the linked Websites, blogs, etc.
+
+Special thanks and credit to the SUSE Pack team.
