@@ -46,6 +46,10 @@ Here are some ways how you can monitor a project or get notified about new relea
 
 To get an overview of which distro ships which version of a particular software we like to use [repology](https://repology.org/). For example see this [overview](https://repology.org/project/profanity/versions).
 
+## License
+The software you package will come with a license. You need to be aware which licenses your distribution allows to ship in their repositories.
+You can find a list of licenses and their identifier on the [SPDX website](https://spdx.org/licenses/).
+
 ## Distribution and system specific guides
 
 ### Debian
