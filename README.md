@@ -53,6 +53,15 @@ So we have build time and run time requirements. Since we don't want huge packag
 
 Distributions have different naming regulations regarding such packages. Some distributions don't split packages up in development files (Arch), some call them `-dev` (Debian) some call them `-devel` (openSUSE).
 
+Some distributions and systems provide build recipes (Gentoo, pkgsrc, AUR) while others ship built binaries (Debian, Fedora, openSUSE) ready to be used.
+
+Some distributions require the packager to build and upload the binaries on his own machine others use build systems.
+
+Packages are usually signed/verified. For example the Open Build Service will check whether the tarball that is in a project actually is the same as the upstream tarball (if you use the URL in the spec file), it can then also check a hash (if provided) and also the author in case upstream signed the tarball with their GPG key.
+It then builds the package for the specified architectures and will sign those packages.
+
+By the way, the Open Build service can not only build rpms for openSUSE. It can also build packages for Fedora, RHEL, Arch, Debian, Ubuntu, AppImages..
+
 We recommend to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) now. Even when you are not interested in becoming a packager for an RPM based distribution this will serve as a good introdcution.
 
 ## What is a package maintainer
