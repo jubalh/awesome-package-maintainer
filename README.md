@@ -12,9 +12,6 @@ Cover:
 * debug symbols
 * debuginfod
 
-Add examples of:
-* wiggle
-
 # What does it entail to be a packager?
 
 * Packaging software from scratch (creating build recipe, a deb rpm ebuild and so on).
@@ -155,9 +152,6 @@ For patches created by git you will usually use `-p1` to apply them.
 patch < my.patch
 ```
 
-### wiggle
-[wiggle](https://github.com/neilbrown/wiggle/) applies rejected patches and performs word-wise diffs.
-
 ### quilt
 [quilt](http://savannah.nongnu.org/projects/quilt) is a tool for managing many patches.
 
@@ -184,6 +178,81 @@ quilt refresh
 ```
 
 Now we have a new file `tiff-security-fix-1.patch` which we can apply in the spec file.
+
+### wiggle
+[wiggle](https://github.com/neilbrown/wiggle/) applies rejected patches and performs word-wise diffs.
+
+1. Use quilt to apply patch
+2. If quilt failed, force it to apply as much as possible by the parameter `-f` (force). It applies what it is able to and saves the rest to `*.rej` (rejected) files
+3. Use `wiggle --replace file file.rej` to try and apply the changes that quilt could not apply
+
+#### Example
+
+We have the following patch:
+```
+--- telnet-bsd-1.2.orig/telnet/commands.c
++++ telnet-bsd-1.2/telnet/commands.c
+@@ -2450,17 +2450,21 @@ tn (int argc, char *argv[])
+    error = getaddrinfo (aliasp, "0", &ahints, &ares);
+    if (error)
+    {
++     printf ("Couldn't get address for %s\n", aliasp);
+       warn ("%s: %s", aliasp, gai_strerror (error));
+       close (net);
+-      freeaddrinfo (ares);
++     net = -1;
+       continue;
+}
+```
+
+Since the patch was created the `telnet/commands.c` file has already been changed.
+```
+warn ("%s: %s", aliasp, gai_strerror (error));
+printf("This is a test");
+int a = 5;
+freeaddrinfo (ares);
+printf("This is another test");
+break;
+```
+
+Try quilt:
+```
+quilt push
+Applying patch patches/telnet-bsd-1.2-hostalias.patch
+patching file telnet/commands.c
+Hunk #1 FAILED at 2450.
+1 out of 1 hunk FAILED -- rejects in file telnet/commands.c
+patching file telnet/telnet.1
+Patch patches/telnet-bsd-1.2-hostalias.patch does not apply (enforce with -f)
+```
+
+Use `-f` option:
+```
+$ quilt push -f
+Applying patch patches/telnet-bsd-1.2-hostalias.patch
+patching file telnet/commands.c
+Hunk #1 FAILED at 2450.
+1 out of 1 hunk FAILED -- saving rejects to file telnet/commands.c.rej
+patching file telnet/telnet.1
+Applied patch patches/telnet-bsd-1.2-hostalias.patch (forced; needs refresh)
+```
+
+The telnet/commands.c.rej file was created. Now the Wiggle can be used:
+```
+$ wiggle --replace commands.c commands.c.rej
+```
+
+Inspect the `telnet/commands.c` file to see that the changes from the patch were successfully applied:
+```
+printf ("Couldn't get address for %s\n", aliasp);
+warn ("%s: %s", aliasp, gai_strerror (error));
+printf("This is a test");
+int a = 5;
+net = -1;
+printf("This is another test");
+break
+;
+```
 
 ### meld
 [Meld](https://meldmerge.org/) is a GUI tool for comparing two files or directories.
