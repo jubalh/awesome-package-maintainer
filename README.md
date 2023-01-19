@@ -326,6 +326,24 @@ break
 [Meld](https://meldmerge.org/) is a GUI tool for comparing two files or directories.
 It also let's you easily merge changes.
 
+#### Example
+We checked out two packages from the [openSUSE OBS](https://build.opensuse.org/).
+One is `X11:LXQt/lxqt-about` the other `X11:LXQt:git/lxqt-about`.
+The difference is that one will be about the stable release of lxqt-about and the other will always be rebuild with the latest version of upstream git master.
+
+We want to find out the differences and also merge/pull/push changes from the various files.
+
+```
+cd ~/obs
+osc co X11:LXQt/lxqt-about
+osc co X11:LXQt:git/lxqt-about
+meld X11:LXQt X11:LXQt:git
+```
+
+![alt text](https://github.com/jubalh/awesome-package-maintainer/blob/master/img/meld-1.png?raw=true)
+
+![alt text](https://github.com/jubalh/awesome-package-maintainer/blob/master/img/meld-2.png?raw=true)
+
 ### grep, ack, ag
 These are tools to search in files. `grep` is the oldest of them.
 `ack` is faster since it skips some directories like the `.git` and `.subversion` directories by default.
