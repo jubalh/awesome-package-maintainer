@@ -4,8 +4,13 @@
 ***WIP*** I'm not yet sure how to organize this.
 Let's collect all information now. We can still reorganize and restructure later.
 
-This should become a list with awesome tools, tricks, tips, howtos for (Linux) package maintainers.
-This guide will (for now) focus on traditional packaging, not so much about containerized applications.
+Goals:
+* short general introduction for newcomer Linux geeks on what a package is and why we have them
+* general collection of tools that packagers use
+* general collection of tips, snippets and best practises useful for packagers of all distributions and systems
+* distribution/system specifc cheat sheets, how tos, walk throughs and hints
+
+This guide will (for now) focus on traditional packaging, not on containerized applications.
 
 ## TODO
 Cover:
