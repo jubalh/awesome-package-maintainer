@@ -155,8 +155,20 @@ patch < my.patch
 ### quilt
 [quilt](http://savannah.nongnu.org/projects/quilt) is a tool for managing many patches.
 
+`quilt series` shows a list of all patches.
+`quilt push/pop` navigate the patch stack up and down. Before a patch is applied, all affected files are backed up to the .pc/patch directory.
+
+Sometimes there is a patch that can't be applied because of the file difference. In these situations you can use `wiggle` or try to adjust patch manually:
+
+1. Use quilt to apply patch
+2. If quilt failed, force it to apply as much as possible by the parameter -f (force)
+3. Quilt applies what it is able to apply and saves the rest to file.rej files
+4. Check the file.rej and do desired changes in the specified files manually
+5. refresh the patch
+
 We will use an example based on an openSUSE package. The quilt part is universal though.
 
+#### Create a new patch
 Check out the package and call `quilt setup` which will create a new folder with the source code:
 ```
 osc bco graphics/tiff
@@ -177,7 +189,12 @@ quilt header -e  #at the top of the header we want some explanation/references e
 quilt refresh
 ```
 
+Instead of `quilt edit file` you could also use `quilt add file` and `$EDITOR file`.
+
 Now we have a new file `tiff-security-fix-1.patch` which we can apply in the spec file.
+
+#### Edit an existing patch
+After initializing of a source tree use quilt push X, where X stands for the number of patches you want to apply. Use this command in order to get to the position of the patch you want to alter. Afterwards just edit the file corresponding to the patch and refresh this patch. If you edit a file that isn't contained in the patch, remember to add this file by quilt add.
 
 ### wiggle
 [wiggle](https://github.com/neilbrown/wiggle/) applies rejected patches and performs word-wise diffs.
