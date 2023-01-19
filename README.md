@@ -145,12 +145,6 @@ Useful for developers and maintainers. It can also search only specific file typ
 For example `ack --cc close` searches all C files for the word `close`.
 `ag` is yet a little faster than ack and ignores files mentioned in `.gitignore`. Additionally it can search compressed files.
 
-### ltrace
-[ltrace](http://www.ltrace.org/) is a debugging program which runs a specified command until the command exits.  While the command is executing, ltrace intercepts and records both the dynamic library calls called by the executed process and the signals received by the executed process. 
-
-### strace
-[strace](https://strace.io/) monitors and tampers with interactions between processes and the kernel. Useful for watching system calls and signals.
-
 ### gdb
 [gdb](https://www.gnu.org/software/gdb) is a debugger.
 
@@ -207,6 +201,24 @@ With `break` we set the breakpoint to the function `plus`.
 Then we start the program. It breaks at our first breakpoint.
 Here we investigate the values of the variables `a` and `b`.
 And then we continue to step through the program. At the end we look at the result.
+
+### ltrace
+[ltrace](http://www.ltrace.org/) is a debugging program which runs a specified command until the command exits.  While the command is executing, ltrace intercepts and records both the dynamic library calls called by the executed process and the signals received by the executed process. 
+
+#### Example
+Running ltrace on the `plus` example program from above we see that it only calls `printf`:
+
+```
+ltrace ./plus
+printf('R'Result: 5
+)                                                                                                          = 10
++++ exited (status 0) +++
+```
+
+### strace
+[strace](https://strace.io/) monitors and tampers with interactions between processes and the kernel. Useful for watching system calls and signals.
+
+Try running strace on the `plus` example program and examine its output.
 
 ### lsof
 [lsof](https://people.freebsd.org/~abe/) is a utility that lists open files.
