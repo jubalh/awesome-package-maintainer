@@ -154,11 +154,59 @@ For example `ack --cc close` searches all C files for the word `close`.
 ### gdb
 [gdb](https://www.gnu.org/software/gdb) is a debugger.
 
+#### Example
+Basic example that shows how to use gdb in general.
+
 ```
-gdb myprog
-run
-backtrace
+cat main.c
+#include <stdio.h>
+#include <stdlib.h>
+
+int plus(int a, int b)
+{
+    return a+b;
+}
+
+int main()
+{
+    int n1 = 2;
+    int n2 = 3;
+    int r = plus(n1, n2);
+    printf("Result: %d\n", r);
+    return EXIT_SUCCESS;
+}
 ```
+
+Compile it with debug symbols:
+```
+gcc main.c -g -o plus
+```
+
+Debug:
+```
+(gdb) break plus
+Breakpoint 1 at 0x401140: file main.c, line 6.
+(gdb) run
+Starting program: /home/user/src/plus
+Breakpoint 1, plus (a=2, b=3) at main.c:6
+6	    return a+b;
+(gdb) print a
+$1 = 2
+(gdb) p b
+$2 = 3
+(gdb) next
+7	}
+(gdb) n
+main () at main.c:14
+14	    printf("Result: %d\n", r);
+(gdb) p r
+$3 = 5
+```
+
+With `break` we set the breakpoint to the function `plus`.
+Then we start the program. It breaks at our first breakpoint.
+Here we investigate the values of the variables `a` and `b`.
+And then we continue to step through the program. At the end we look at the result.
 
 ### lsof
 [lsof](https://people.freebsd.org/~abe/) is a utility that lists open files.
