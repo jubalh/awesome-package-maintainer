@@ -62,7 +62,8 @@ Read up on how to configure core dumps on your system. And check `ulimit`.
 * [Debug a crash after it happened – without knowing about it upfront](https://dominique.leuenberger.net/blog/2014/04/debug-a-crash-after-it-happened-without-knowing-about-it-upfront/) by [DimStar77](https://github.com/DimStar77).
 * [Per service ulimits](https://nordisch.org/posts/per-service-ulimits/) by [darix](https://github.com/darix).
 
-## Distribution and system specific guides
+## The packaging process
+Even if you are not interested in RPM we would like to suggest to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) since it gives a good overview and introduction.
 
 ### Debian
 * [Debian New Maintainers' Guide](https://www.debian.org/doc/manuals/maint-guide/)
@@ -87,7 +88,7 @@ Then:
 * Read the general [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
 * Read the RPM section of this readme as well.
 
-Check our [openSUSE cheat sheet](cheatsheet/openSUSE.md) for tips, tricks and tools.
+Our [openSUSE cheat sheet](cheatsheet/openSUSE.md) contains useful tips, tricks and tools.
 
 #### Blog(posts)
 * [RPM packaging for beginners](https://dominique.leuenberger.net/blog/2009/05/rpm-packaging-for-beginners/) by [DimStar77](https://github.com/DimStar77).
@@ -100,7 +101,8 @@ Check our [openSUSE cheat sheet](cheatsheet/openSUSE.md) for tips, tricks and to
 * [Debug a crash after it happened – without knowing about it upfront](https://dominique.leuenberger.net/blog/2014/04/debug-a-crash-after-it-happened-without-knowing-about-it-upfront/) by [DimStar77](https://github.com/DimStar77).
 
 ### RPM
-* [RPM Packaging Guide](https://rpm-packaging-guide.github.io/)
+* [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
+* [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) by [dmacvicar](https://github.com/dmacvicar).
 
 #### Snippets and tricks
 
