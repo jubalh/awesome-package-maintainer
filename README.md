@@ -11,7 +11,6 @@ This guide will (for now) focus on traditional packaging, not so much about cont
 Cover:
 * debug symbols
 * debuginfod
-* coredumb
 
 Add examples of:
 * quilt
@@ -49,6 +48,19 @@ To get an overview of which distro ships which version of a particular software 
 ## License
 The software you package will come with a license. You need to be aware which licenses your distribution allows to ship in their repositories.
 You can find a list of licenses and their identifier on the [SPDX website](https://spdx.org/licenses/).
+
+## Technical
+
+### Coredump
+A coredump is a file which contains the memory of a process. We can configure our system to create them when a program terminates unexpectedly. Like when a segmentation fault occurs.
+A seg fault happens when a program tries to access memory that it should not access.
+Read up on how to configure core dumps on your system. And check `ulimit`.
+
+#### Blog(posts)
+* [Linux core dump analysis](https://sergioprado.blog/linux-core-dump-analysis/) by [sergioprado](https://github.com/sergioprado).
+* [How to get a core dump for a segfault on Linux](https://jvns.ca/blog/2018/04/28/debugging-a-segfault-on-linux/) by [jvns](https://github.com/jvns).
+* [Debug a crash after it happened – without knowing about it upfront](https://dominique.leuenberger.net/blog/2014/04/debug-a-crash-after-it-happened-without-knowing-about-it-upfront/) by [DimStar77](https://github.com/DimStar77).
+* [Per service ulimits](https://nordisch.org/posts/per-service-ulimits/) by [darix](https://github.com/darix).
 
 ## Distribution and system specific guides
 
