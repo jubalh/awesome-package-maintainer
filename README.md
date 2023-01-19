@@ -61,6 +61,10 @@ Read up on how to configure core dumps on your system. And check `ulimit`.
 ## The packaging process
 Even if you are not interested in RPM we would like to suggest to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) since it gives a good overview and introduction.
 
+### Buildroot
+* [Contribute](https://buildroot.org/downloads/manual/manual.html#_contributing_to_buildroot) to Buildroot
+* Our [buildroot cheat sheet](cheatsheet/buildroot.md).
+
 ### Debian
 * [Debian New Maintainers' Guide](https://www.debian.org/doc/manuals/maint-guide/)
 * [Packaging on the Debian wiki](https://wiki.debian.org/Packaging)
