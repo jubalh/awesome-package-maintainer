@@ -171,8 +171,19 @@ Useful for developers and maintainers. It can also search only specific file typ
 For example `ack --cc close` searches all C files for the word `close`.
 `ag` is yet a little faster than ack and ignores files mentioned in `.gitignore`. Additionally it can search compressed files.
 
+### Debugging
+The following tools will mostly be about debugging.
+
+* [What is That Process Doing?](http://price.mit.edu/tracing-w2014/#1) by Greg Price.
+* [Linux debugging tools I love](https://jvns.ca/blog/2016/07/03/debugging-tools-i-love/) by [jvns](https://github.com/jvns).
+* [Recovering files using /proc](https://jvns.ca/blog/2014/03/23/recovering-files-using-slash-proc-and-other-useful-facts/) by [jvns](https://github.com/jvns).
+* [Some ways to get better at debugging](https://jvns.ca/blog/2022/08/30/a-way-to-categorize-debugging-skills/) by [jvns](https://github.com/jvns).
+* [A debugging manifesto](https://jvns.ca/blog/2022/12/08/a-debugging-manifesto/) by [jvns](https://github.com/jvns).
+
 ### gdb
 [gdb](https://www.gnu.org/software/gdb) is a debugger.
+
+* [How does gdb work?](https://jvns.ca/blog/2016/08/10/how-does-gdb-work/) by [jvns](https://github.com/jvns).
 
 #### Example
 Basic example that shows how to use gdb in general.
@@ -231,6 +242,8 @@ And then we continue to step through the program. At the end we look at the resu
 ### ltrace
 [ltrace](http://www.ltrace.org/) is a debugging program which runs a specified command until the command exits.  While the command is executing, ltrace intercepts and records both the dynamic library calls called by the executed process and the signals received by the executed process. 
 
+* [Using ltrace to debug a memory leak](https://jvns.ca/blog/2016/06/15/using-ltrace-to-debug-a-memory-leak/) by [jvns](https://github.com/jvns).
+
 #### Example
 Running ltrace on the `plus` example program from above we see that it only calls `printf`:
 
@@ -245,6 +258,18 @@ printf('R'Result: 5
 [strace](https://strace.io/) monitors and tampers with interactions between processes and the kernel. Useful for watching system calls and signals.
 
 Try running strace on the `plus` example program and examine its output.
+
+* [What problems do people solve with strace?](https://jvns.ca/blog/2021/04/03/what-problems-do-people-solve-with-strace/) by [jvns](https://github.com/jvns).
+* [A workshop on strace & tcpdump](https://jvns.ca/blog/2016/05/06/a-workshop-on-strace-and-tcpdump/) by [jvns](https://github.com/jvns).
+* [Debugging shared library problems with strace](https://jvns.ca/blog/2014/03/10/debugging-shared-library-problems-with-strace/) by [jvns](https://github.com/jvns).
+* [Debug your programs like they're closed source!](https://jvns.ca/blog/2014/04/20/debug-your-programs-like-theyre-closed-source/) by [jvns](https://github.com/jvns).
+* [Understanding how killall works using strace](https://jvns.ca/blog/2013/12/22/fun-with-strace/) by [jvns](https://github.com/jvns).
+* [Spying on ssh with strace](https://jvns.ca/blog/2014/02/17/spying-on-ssh-with-strace/) by [jvns](https://github.com/jvns).
+
+### ftrace
+[ftrace](https://www.kernel.org/doc/html/latest/trace/index.html) is a tracing framework for the Linux kernel.
+
+* [ftrace: trace your kernel functions!](https://jvns.ca/blog/2017/03/19/getting-started-with-ftrace/) by [jvns](https://github.com/jvns).
 
 ### lsof
 [lsof](https://people.freebsd.org/~abe/) is a utility that lists open files.
