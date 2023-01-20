@@ -463,6 +463,8 @@ Try running strace on the `plus` example program and examine its output.
 ### lsof
 [lsof](https://people.freebsd.org/~abe/) is a utility that lists open files.
 
+* [lsof Tutorial](https://lsof.readthedocs.io/en/latest/tutorial/)
+
 ```
 lsof -c vim
 vim-nox11 17582 user  cwd    DIR   0,43       82 6826592 /home/user/awesome-package-maintainer
