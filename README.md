@@ -422,6 +422,9 @@ They display information about object files and can be used to view an executabl
 ## The packaging process
 Even if you are not interested in RPM we would like to suggest to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) since it gives a good overview and introduction.
 
+Then see the following system specific chapters here according to your interest.
+Generally we would recommend to skim also over the ones that are not your main focus.
+
 ### Buildroot
 * [Contribute](https://buildroot.org/downloads/manual/manual.html#_contributing_to_buildroot) to Buildroot
 
@@ -454,8 +457,8 @@ Start by creating an account on:
 * the issue tracker: https://bugzilla.opensuse.org/
 * the openSUSE Open Build Service (OBS): https://build.opensuse.org/
 
-Then:
-* Use the [Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial) as an introduction.
+Then, in order:
+* Use the [Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial) as follow along style introduction.
 * Read the [openSUSE Packaging Guidelines](https://en.opensuse.org/openSUSE:Packaging_guidelines).
 * Learn how to write a [ChangeLog](https://en.opensuse.org/openSUSE:Creating_a_changes_file_(RPM)).
 * Bookmark and skim through [Packaging documentation on the openSUSE wiki](https://en.opensuse.org/Category:Packaging_documentation) 
