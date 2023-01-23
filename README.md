@@ -68,7 +68,9 @@ We recommend to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutori
 A packager/packgage maintainer is the person who makes this magic happen.
 Thanks to them you can easily install software using your package manager eg `zypper install libreoffice`.
 
-# What does it entail to be a packager?
+# Tasks
+
+## What does it entail to be a packager?
 
 * Packaging software from scratch (creating build recipe, a deb rpm ebuild and so on).
 * Following the rules, guidelines and regulations of your particular distribution when packaging new software.
@@ -80,7 +82,7 @@ Thanks to them you can easily install software using your package manager eg `zy
 * Send your downstream fixes to the upstream project so that everyone benefits from it.
 * Coordinate with other maintainers (several maintainers for one project, dependency/library maintainers, other experts).
 
-# Staying up to date
+## Staying up to date
 In a perfect world package maintainers would be in close contact with upstream.
 Monitor their development and take important bugfixes.
 
@@ -101,14 +103,13 @@ To get an overview of which distro ships which version of a particular software 
 The software you package will come with a license. You need to be aware which licenses your distribution allows to ship in their repositories.
 You can find a list of licenses and their identifier on the [SPDX website](https://spdx.org/licenses/).
 
-## Technical
+# Technical
 
-### Coredump
+## Coredump
 A coredump is a file which contains the memory of a process. We can configure our system to create them when a program terminates unexpectedly. Like when a segmentation fault occurs.
 A seg fault happens when a program tries to access memory that it should not access.
 Read up on how to configure core dumps on your system. And check `ulimit`.
 
-#### Blog(posts)
 * [Linux core dump analysis](https://sergioprado.blog/linux-core-dump-analysis/) by [sergioprado](https://github.com/sergioprado).
 * [How to get a core dump for a segfault on Linux](https://jvns.ca/blog/2018/04/28/debugging-a-segfault-on-linux/) by [jvns](https://github.com/jvns).
 * [Debug a crash after it happened – without knowing about it upfront](https://dominique.leuenberger.net/blog/2014/04/debug-a-crash-after-it-happened-without-knowing-about-it-upfront/) by [DimStar77](https://github.com/DimStar77).
@@ -183,12 +184,12 @@ Generally what the actual build recipe looked like.
 rpm -q --queryformat="%{Spec}" /path/to/src.rpm
 ```
 
-## Tools
+# Tools
 
-### diff
+## diff
 Diff is a command line tool for comparing two files or directories.
 
-##### Example
+### Example
 
 We have an upstream tarball and want to create a patch with some changes:
 
@@ -199,20 +200,20 @@ vi upstream-version.new/Makefile upstream-version.new/main.c
 diff -urEbw upstream-version upstream-version.new > my.patch
 ```
 
-### patch
+## patch
 Patch is a command line tool that applies a diff output file (patch) to an original file.
 
 One important parameter is `-p` which strips leading slashes, basically ignoring parts of the path.
 
 For patches created by git you will usually use `-p1` to apply them.
 
-#### Example
+### Example
 
 ```
 patch < my.patch
 ```
 
-### quilt
+## quilt
 [quilt](http://savannah.nongnu.org/projects/quilt) is a tool for managing many patches.
 
 `quilt series` shows a list of all patches.
@@ -228,7 +229,7 @@ Sometimes there is a patch that can't be applied because of the file difference.
 
 We will use an example based on an openSUSE package. The quilt part is universal though.
 
-#### Create a new patch
+### Create a new patch
 Check out the package and call `quilt setup` which will create a new folder with the source code:
 ```
 osc bco graphics/tiff
@@ -253,17 +254,17 @@ Instead of `quilt edit file` you could also use `quilt add file` and `$EDITOR fi
 
 Now we have a new file `tiff-security-fix-1.patch` which we can apply in the spec file.
 
-#### Edit an existing patch
+### Edit an existing patch
 After initializing of a source tree use quilt push X, where X stands for the number of patches you want to apply. Use this command in order to get to the position of the patch you want to alter. Afterwards just edit the file corresponding to the patch and refresh this patch. If you edit a file that isn't contained in the patch, remember to add this file by quilt add.
 
-### wiggle
+## wiggle
 [wiggle](https://github.com/neilbrown/wiggle/) applies rejected patches and performs word-wise diffs.
 
 1. Use quilt to apply patch
 2. If quilt failed, force it to apply as much as possible by the parameter `-f` (force). It applies what it is able to and saves the rest to `*.rej` (rejected) files
 3. Use `wiggle --replace file file.rej` to try and apply the changes that quilt could not apply
 
-#### Example
+### Example
 
 We have the following patch:
 ```
@@ -331,11 +332,11 @@ break
 ;
 ```
 
-### meld
+## meld
 [Meld](https://meldmerge.org/) is a GUI tool for comparing two files or directories.
 It also let's you easily merge changes.
 
-#### Example
+### Example
 We checked out two packages from the [openSUSE OBS](https://build.opensuse.org/).
 One is `X11:LXQt/lxqt-about` the other `X11:LXQt:git/lxqt-about`.
 The difference is that one will be about the stable release of lxqt-about and the other will always be rebuild with the latest version of upstream git master.
@@ -353,14 +354,14 @@ meld X11:LXQt X11:LXQt:git
 
 ![alt text](https://github.com/jubalh/awesome-package-maintainer/blob/master/img/meld-2.png?raw=true)
 
-### grep, ack, ag
+## grep, ack, ag
 These are tools to search in files. `grep` is the oldest of them.
 `ack` is faster since it skips some directories like the `.git` and `.subversion` directories by default.
 Useful for developers and maintainers. It can also search only specific file types.
 For example `ack --cc close` searches all C files for the word `close`.
 `ag` is yet a little faster than ack and ignores files mentioned in `.gitignore`. Additionally it can search compressed files.
 
-### Debugging
+# Debugging
 The following tools will mostly be about debugging.
 
 * [What is That Process Doing?](http://price.mit.edu/tracing-w2014/#1) by Greg Price.
@@ -369,12 +370,12 @@ The following tools will mostly be about debugging.
 * [Some ways to get better at debugging](https://jvns.ca/blog/2022/08/30/a-way-to-categorize-debugging-skills/) by [jvns](https://github.com/jvns).
 * [A debugging manifesto](https://jvns.ca/blog/2022/12/08/a-debugging-manifesto/) by [jvns](https://github.com/jvns).
 
-### gdb
+## gdb
 [gdb](https://www.gnu.org/software/gdb) is a debugger.
 
 * [How does gdb work?](https://jvns.ca/blog/2016/08/10/how-does-gdb-work/) by [jvns](https://github.com/jvns).
 
-#### Example
+### Example
 Basic example that shows how to use gdb in general.
 
 ```
@@ -428,12 +429,12 @@ Then we start the program. It breaks at our first breakpoint.
 Here we investigate the values of the variables `a` and `b`.
 And then we continue to step through the program. At the end we look at the result.
 
-### ltrace
+## ltrace
 [ltrace](http://www.ltrace.org/) is a debugging program which runs a specified command until the command exits.  While the command is executing, ltrace intercepts and records both the dynamic library calls called by the executed process and the signals received by the executed process. 
 
 * [Using ltrace to debug a memory leak](https://jvns.ca/blog/2016/06/15/using-ltrace-to-debug-a-memory-leak/) by [jvns](https://github.com/jvns).
 
-#### Example
+### Example
 Running ltrace on the `plus` example program from above we see that it only calls `printf`:
 
 ```
@@ -443,7 +444,7 @@ printf('R'Result: 5
 +++ exited (status 0) +++
 ```
 
-### strace
+## strace
 [strace](https://strace.io/) monitors and tampers with interactions between processes and the kernel. Useful for watching system calls and signals.
 
 Try running strace on the `plus` example program and examine its output.
@@ -455,12 +456,12 @@ Try running strace on the `plus` example program and examine its output.
 * [Understanding how killall works using strace](https://jvns.ca/blog/2013/12/22/fun-with-strace/) by [jvns](https://github.com/jvns).
 * [Spying on ssh with strace](https://jvns.ca/blog/2014/02/17/spying-on-ssh-with-strace/) by [jvns](https://github.com/jvns).
 
-### ftrace
+## ftrace
 [ftrace](https://www.kernel.org/doc/html/latest/trace/index.html) is a tracing framework for the Linux kernel.
 
 * [ftrace: trace your kernel functions!](https://jvns.ca/blog/2017/03/19/getting-started-with-ftrace/) by [jvns](https://github.com/jvns).
 
-### lsof
+## lsof
 [lsof](https://people.freebsd.org/~abe/) is a utility that lists open files.
 
 * [lsof Tutorial](https://lsof.readthedocs.io/en/latest/tutorial/)
@@ -471,7 +472,7 @@ vim-nox11 17582 user  cwd    DIR   0,43       82 6826592 /home/user/awesome-pack
 vim-nox11 17582 user    5u   REG   0,43    16384 7061198 /home/user/awesome-package-maintainer/.README.md.swp
 ```
 
-### ldd
+## ldd
 ldd lists the shared libraries required by a program.
 
 ```
@@ -479,13 +480,13 @@ ldd ./src/myprog
 	libcurl.so.4 => /lib64/libcurl.so.4 (0x00007f36e4297000)
 ```
 
-### readelf and objdump
+## readelf and objdump
 They display information about object files and can be used to view an executable in assembly.
 
-## Scripts and helpers
+# Scripts and helpers
 * [release-notes-scraper](https://github.com/dcermak/release-notes-scraper) - grab the release notes for projects from github that do not keep a CHANGELOG, but publish their release notes via the releases page.
 
-## Credit
+# Credit
 Thanks to everybody who contributed to this guide and to the authors of all the linked Websites, blogs, etc.
 
 Special thanks and credit to the SUSE Pack team.
