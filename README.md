@@ -115,75 +115,6 @@ Read up on how to configure core dumps on your system. And check `ulimit`.
 * [Debug a crash after it happened – without knowing about it upfront](https://dominique.leuenberger.net/blog/2014/04/debug-a-crash-after-it-happened-without-knowing-about-it-upfront/) by [DimStar77](https://github.com/DimStar77).
 * [Per service ulimits](https://nordisch.org/posts/per-service-ulimits/) by [darix](https://github.com/darix).
 
-## The packaging process
-Even if you are not interested in RPM we would like to suggest to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) since it gives a good overview and introduction.
-
-### Buildroot
-* [Contribute](https://buildroot.org/downloads/manual/manual.html#_contributing_to_buildroot) to Buildroot
-* Our [buildroot cheat sheet](cheatsheet/buildroot.md).
-
-### Debian
-* [Debian New Maintainers' Guide](https://www.debian.org/doc/manuals/maint-guide/)
-* [Packaging on the Debian wiki](https://wiki.debian.org/Packaging)
-* [Debian Developer's Reference](https://www.debian.org/doc/manuals/maint-guide/index.en.html)
-
-### Fedora
-* [Fedora Packaging Guidelines](https://docs.fedoraproject.org/en-US/packaging-guidelines/)
-
-### openSUSE
-Start by creating an account on:
-* the issue tracker: https://bugzilla.opensuse.org/
-* the openSUSE Open Build Service (OBS): https://build.opensuse.org/
-
-Then:
-* Use the [Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial) as an introduction.
-* Read the [openSUSE Packaging Guidelines](https://en.opensuse.org/openSUSE:Packaging_guidelines).
-* Learn how to write a [ChangeLog](https://en.opensuse.org/openSUSE:Creating_a_changes_file_(RPM)).
-* Bookmark and skim through [Packaging documentation on the openSUSE wiki](https://en.opensuse.org/Category:Packaging_documentation) 
-* Read about [Build Service Tips and Tricks](https://en.opensuse.org/openSUSE:Build_Service_Tips_and_Tricks)
-* Learn [how to contribute to Factory](https://en.opensuse.org/openSUSE:How_to_contribute_to_Factory). It also contains a lot of useful snippets.
-* Read the general [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
-* Read the RPM section of this readme as well.
-
-Our [openSUSE cheat sheet](cheatsheet/openSUSE.md) contains useful tips, tricks and tools.
-
-#### Blog(posts)
-* [RPM packaging for beginners](https://dominique.leuenberger.net/blog/2009/05/rpm-packaging-for-beginners/) by [DimStar77](https://github.com/DimStar77).
-* [Per service ulimits](https://nordisch.org/posts/per-service-ulimits/) by [darix](https://github.com/darix).
-* [Howto patch a rubygem based package?](https://nordisch.org/posts/howto-patch-a-rubygem-based-package/) by [darix](https://github.com/darix).
-* [Quilt Quick How-to](https://nordisch.org/posts/quilt-quick-how-to/) by [darix](https://github.com/darix).
-* [OSC interactive review](https://nordisch.org/posts/osc-interactive-review/) by [darix](https://github.com/darix).
-* [Hooking up instantiated services with RPM](https://nordisch.org/posts/hooking-up-instantiated-services-with-rpm/) by [darix](https://github.com/darix).
-* [OSC helpers for lazy packagers](https://nordisch.org/posts/osc-helpers-for-lazy-packagers/) by [darix](https://github.com/darix).
-* [Debug a crash after it happened – without knowing about it upfront](https://dominique.leuenberger.net/blog/2014/04/debug-a-crash-after-it-happened-without-knowing-about-it-upfront/) by [DimStar77](https://github.com/DimStar77).
-
-### RPM
-* [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
-* [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) by [dmacvicar](https://github.com/dmacvicar).
-
-#### Snippets and tricks
-
-##### List files in a package
-
-```
-rpm -ql vim
-```
-
-##### Find out which package owns a particular file
-
-```
-rpm -qf /usr/bin/vim
-```
-
-##### Get expanded spec file from src.rpm
-Since rpm 4.18 you can find the parsed and expanded spec file in the src.rpm headers.
-This can be useful to know which values are actually used, what the macros were expanded to.
-Generally what the actual build recipe looked like.
-
-```
-rpm -q --queryformat="%{Spec}" /path/to/src.rpm
-```
-
 # Tools
 
 ## diff
@@ -485,6 +416,75 @@ They display information about object files and can be used to view an executabl
 
 # Scripts and helpers
 * [release-notes-scraper](https://github.com/dcermak/release-notes-scraper) - grab the release notes for projects from github that do not keep a CHANGELOG, but publish their release notes via the releases page.
+
+## The packaging process
+Even if you are not interested in RPM we would like to suggest to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) since it gives a good overview and introduction.
+
+### Buildroot
+* [Contribute](https://buildroot.org/downloads/manual/manual.html#_contributing_to_buildroot) to Buildroot
+* Our [buildroot cheat sheet](cheatsheet/buildroot.md).
+
+### Debian
+* [Debian New Maintainers' Guide](https://www.debian.org/doc/manuals/maint-guide/)
+* [Packaging on the Debian wiki](https://wiki.debian.org/Packaging)
+* [Debian Developer's Reference](https://www.debian.org/doc/manuals/maint-guide/index.en.html)
+
+### Fedora
+* [Fedora Packaging Guidelines](https://docs.fedoraproject.org/en-US/packaging-guidelines/)
+
+### openSUSE
+Start by creating an account on:
+* the issue tracker: https://bugzilla.opensuse.org/
+* the openSUSE Open Build Service (OBS): https://build.opensuse.org/
+
+Then:
+* Use the [Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial) as an introduction.
+* Read the [openSUSE Packaging Guidelines](https://en.opensuse.org/openSUSE:Packaging_guidelines).
+* Learn how to write a [ChangeLog](https://en.opensuse.org/openSUSE:Creating_a_changes_file_(RPM)).
+* Bookmark and skim through [Packaging documentation on the openSUSE wiki](https://en.opensuse.org/Category:Packaging_documentation) 
+* Read about [Build Service Tips and Tricks](https://en.opensuse.org/openSUSE:Build_Service_Tips_and_Tricks)
+* Learn [how to contribute to Factory](https://en.opensuse.org/openSUSE:How_to_contribute_to_Factory). It also contains a lot of useful snippets.
+* Read the general [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
+* Read the RPM section of this readme as well.
+
+Our [openSUSE cheat sheet](cheatsheet/openSUSE.md) contains useful tips, tricks and tools.
+
+#### Blog(posts)
+* [RPM packaging for beginners](https://dominique.leuenberger.net/blog/2009/05/rpm-packaging-for-beginners/) by [DimStar77](https://github.com/DimStar77).
+* [Per service ulimits](https://nordisch.org/posts/per-service-ulimits/) by [darix](https://github.com/darix).
+* [Howto patch a rubygem based package?](https://nordisch.org/posts/howto-patch-a-rubygem-based-package/) by [darix](https://github.com/darix).
+* [Quilt Quick How-to](https://nordisch.org/posts/quilt-quick-how-to/) by [darix](https://github.com/darix).
+* [OSC interactive review](https://nordisch.org/posts/osc-interactive-review/) by [darix](https://github.com/darix).
+* [Hooking up instantiated services with RPM](https://nordisch.org/posts/hooking-up-instantiated-services-with-rpm/) by [darix](https://github.com/darix).
+* [OSC helpers for lazy packagers](https://nordisch.org/posts/osc-helpers-for-lazy-packagers/) by [darix](https://github.com/darix).
+* [Debug a crash after it happened – without knowing about it upfront](https://dominique.leuenberger.net/blog/2014/04/debug-a-crash-after-it-happened-without-knowing-about-it-upfront/) by [DimStar77](https://github.com/DimStar77).
+
+### RPM
+* [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
+* [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) by [dmacvicar](https://github.com/dmacvicar).
+
+#### Snippets and tricks
+
+##### List files in a package
+
+```
+rpm -ql vim
+```
+
+##### Find out which package owns a particular file
+
+```
+rpm -qf /usr/bin/vim
+```
+
+##### Get expanded spec file from src.rpm
+Since rpm 4.18 you can find the parsed and expanded spec file in the src.rpm headers.
+This can be useful to know which values are actually used, what the macros were expanded to.
+Generally what the actual build recipe looked like.
+
+```
+rpm -q --queryformat="%{Spec}" /path/to/src.rpm
+```
 
 # Credit
 Thanks to everybody who contributed to this guide and to the authors of all the linked Websites, blogs, etc.
