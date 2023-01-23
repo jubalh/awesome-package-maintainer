@@ -458,13 +458,13 @@ Start by creating an account on:
 * the openSUSE Open Build Service (OBS): https://build.opensuse.org/
 
 Then, in order:
-* Use the [Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial) as follow along style introduction.
-* Read the [openSUSE Packaging Guidelines](https://en.opensuse.org/openSUSE:Packaging_guidelines).
-* Learn how to write a [ChangeLog](https://en.opensuse.org/openSUSE:Creating_a_changes_file_(RPM)).
-* Bookmark and skim through [Packaging documentation on the openSUSE wiki](https://en.opensuse.org/Category:Packaging_documentation) 
-* Read about [Build Service Tips and Tricks](https://en.opensuse.org/openSUSE:Build_Service_Tips_and_Tricks)
-* Learn [how to contribute to Factory](https://en.opensuse.org/openSUSE:How_to_contribute_to_Factory). It also contains a lot of useful snippets.
-* Read the general [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
+* [Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial) - follow along style introduction
+* [openSUSE Packaging Guidelines](https://en.opensuse.org/openSUSE:Packaging_guidelines)
+* [Creating a ChangeLog](https://en.opensuse.org/openSUSE:Creating_a_changes_file_(RPM))
+* [Packaging documentation on the openSUSE wiki](https://en.opensuse.org/Category:Packaging_documentation) - bookmark this
+* [Build Service Tips and Tricks](https://en.opensuse.org/openSUSE:Build_Service_Tips_and_Tricks) - learn useful tricks
+* [How to contribute to Factory](https://en.opensuse.org/openSUSE:How_to_contribute_to_Factory) - learn the workflow and some more tricks
+* [RPM Packaging Guide](https://rpm-packaging-guide.github.io/) - about the basics of RPM packaging
 * Read the RPM section of this readme as well.
 
 #### Quickstart
