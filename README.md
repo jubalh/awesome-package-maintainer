@@ -489,4 +489,8 @@ They display information about object files and can be used to view an executabl
 # Credit
 Thanks to everybody who contributed to this guide and to the authors of all the linked Websites, blogs, etc.
 
-Special thanks and credit to the SUSE Pack team.
+Special thanks and credit to the whole SUSE Pack team, and to:
+* Tomáš Chvátal
+* Dominique Leuenberger
+* Marcus Rueckert
+* Andreas Sturmlechner
