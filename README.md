@@ -99,6 +99,22 @@ Here are some ways how you can monitor a project or get notified about new relea
 
 To get an overview of which distro ships which version of a particular software we like to use [repology](https://repology.org/). For example see this [overview](https://repology.org/project/profanity/versions).
 
+## Updates
+Don't hit and run. Doing just a version bump is not enough when updating your package.
+
+You should also:
+* check that it builds
+* write a changelog with changes interesting for users (depending on distribution guidelines)
+* run the upstream testsuite
+* test it yourself
+* run your distribution tests (openSUSE, Debian and Fedora use [openQA](http://open.qa/) for automated tests)
+
+If there are too many (known) issues with the new version you need to decide whether an update is actually in the interest of the users.
+
+Rolling release distributions want the *latest working* version and not the latest no matter whether broken or not.
+
+If the update is a point release with fixes only you need to consider whether you have to update stable repositories as well.
+
 ## License
 The software you package will come with a license. You need to be aware which licenses your distribution allows to ship in their repositories.
 You can find a list of licenses and their identifier on the [SPDX website](https://spdx.org/licenses/).
