@@ -103,6 +103,11 @@ To get an overview of which distro ships which version of a particular software 
 The software you package will come with a license. You need to be aware which licenses your distribution allows to ship in their repositories.
 You can find a list of licenses and their identifier on the [SPDX website](https://spdx.org/licenses/).
 
+## Reproducibility
+Since most distributions ship binary packages and attackers could attack the build system it is useful to have a way to verify the packages.
+Various entities could follow the build instructions and verify wheether the result is the same.
+Packagers can help the [Reproducible builds](https://reproducible-builds.org/) project by ensuring their maintained software can be build reproducibly.
+
 # Technical
 
 ## Coredump
@@ -587,6 +592,7 @@ libstrophe :
 * [Hooking up instantiated services with RPM](https://nordisch.org/posts/hooking-up-instantiated-services-with-rpm/) by [darix](https://github.com/darix).
 * [OSC helpers for lazy packagers](https://nordisch.org/posts/osc-helpers-for-lazy-packagers/) by [darix](https://github.com/darix).
 * [Debug a crash after it happened – without knowing about it upfront](https://dominique.leuenberger.net/blog/2014/04/debug-a-crash-after-it-happened-without-knowing-about-it-upfront/) by [DimStar77](https://github.com/DimStar77).
+* [How to find, debug and fix reproducibility issues in openSUSE OBS package build results](https://github.com/bmwiedemann/reproducibleopensuse/blob/master/howtodebug) by [bmwiedemann](https://github.com/bmwiedemann).
 
 ### RPM
 * [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
