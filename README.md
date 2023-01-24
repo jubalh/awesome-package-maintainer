@@ -82,6 +82,11 @@ Thanks to them you can easily install software using your package manager eg `zy
 * Send your downstream fixes to the upstream project so that everyone benefits from it.
 * Coordinate with other maintainers (several maintainers for one project, dependency/library maintainers, other experts).
 
+## Eating your own dog food
+It helps tremendously if the maintainer is using the software themselves.
+If something is broken they will be motivated to fix it swiftly.
+And their usage basically is a big testing phase.
+
 ## Staying up to date
 In a perfect world package maintainers would be in close contact with upstream.
 Monitor their development and take important bugfixes.
@@ -108,7 +113,7 @@ You should also:
 * check that it builds
 * write a changelog with changes interesting for users (depending on distribution guidelines)
 * run the upstream testsuite
-* test it yourself
+* test it yourself (best is if the maintainer themself is a regular user of the software)
 * run your distribution tests (openSUSE, Debian and Fedora use [openQA](http://open.qa/) for automated tests)
 
 If there are too many (known) issues with the new version you need to decide whether an update is actually in the interest of the users.
