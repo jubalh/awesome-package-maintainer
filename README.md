@@ -1,14 +1,14 @@
-# Awesome Package Maintainer
-*or How To Become A Packager*
+# HOWTO Awesome Package Maintainer!
+*or How to Become a Packager*
 
 ***WIP*** I'm not yet sure how to organize this.
 Let's collect all information now. We can still reorganize and restructure later.
 
 Goals:
-* short general introduction for newcomer Linux geeks on what a package is and why we have them
+* short general introduction on what are packages and why we have them
 * general collection of tools that packagers use
 * general collection of tips, snippets and best practises useful for packagers of all distributions and systems
-* distribution/system specific cheat sheets, how tos, walk throughs and hints
+* distribution/system specific cheat sheets, HOWTOs, walk throughs and hints
 
 This guide will (for now) focus on traditional packaging, not on containerized applications.
 
@@ -19,15 +19,18 @@ Cover:
 
 # Introduction
 
+## Eating your own sushi
+It helps tremendously if you, as a maintainer, are using the software yourself. If you stop using the software, it's best to let someone else that actively uses it to maintain it. This will make your contributions more reliable and more meaningful for yourself. More importantly, it will feel less of a job and be more of a rewarding experience -- you keep software you need in updated state and at same time, you are keeping the entire distribution updated and bug free.
+
 ## Software
-*This will not be an accurate history lesson. We just want to give readers an idea*
+*This will not be an accurate history lesson. We just want to give you some ideas.*
 
 In the early days people were sitting in front of their Slackware machine and when they wanted to install a new software they had to do this by hand.
-They got a tarball with the sources from a website, via mail(ing list), from an (FTP) server, from CVS and so on.
-They inspected the sources and learned how to build the software.
-A popular way are/were Makefiles.
+They got a tarball with the sources from a website, via email or mailing list, from an (FTP) server, from CVS and so on.
+They inspected the sources and learned how to build the software. Some of this software even had Makefiles and were configured with Autotools.
 
-Let's do this now:
+As an example, let's do this now:
+
 ```
 wget https://github.com/jubalh/nudoku/archive/refs/tags/2.1.0.tar.gz
 tar xfv 2.1.0.tar.gz
@@ -37,59 +40,58 @@ autoreconf -fi
 make
 ```
 
-And at that point they got an error. Because one of the dependencies of that software was not installed. In this example that will be `ncurses`.
+And at that point you probably get an error because one of the dependencies of Nudoku is not installed. In this example that will be `ncurses`.
 
-So they had to stop the process. Go to find the sources for ncurses and compile and install that first.
+So now you stop the install process and go find the sources for ncurses and compile and install that first.
 
-If that dependency has dependencies? You guessed it..
+And if that `ncurses` has additional missing dependencies? You guessed it!
 
-## What are packages
-Linux distributions provide packages to make this process much easier. It contains the upstream source files and instructions how to build them. Listing the dependencies. Doing additional work like transforming configuration files, restart services etc.
+## What are packages?
+Linux distributions provide packages to make this process much easier. Packages contains
+ * the upstream source files
+ * instructions how to build them
+ * listing the dependencies and build dependencies
+ * doing additional work like transforming configuration files, restart services etc.
 
-If we are using a package manager and tell it to install such a package it will install all the packages that are a dependency of this package as well.
+If you are using a package manager and tell it to install such a package, it will install all the packages that are a dependency of this package as well.
 
-Some dependencies are needed for building the software others only for running it.
-So we have build time and run time requirements. Since we don't want huge packages we can split them. We can have an `ncurses` package and a `ncurses-devel` package.
+Some dependencies are needed for building the software while others only for running it.
+So you have build time and run time requirements. After you build the package, you will notice that there are parts that do different things. Some parts can be used for building other software while others are used at run-time. So being a clever maintainer, you create multiple binary packages - `ncurses` for run-time part and a `ncurses-devel` package for development headers.
 
-Distributions have different naming regulations regarding such packages. Some distributions don't split packages up in development files (Arch), some call them `-dev` (Debian) some call them `-devel` (openSUSE).
+Distributions have different naming regulations regarding such packages. Some distributions don't split packages up in development files (eg. Arch), some call them `-dev` (Debian) some call them `-devel` (openSUSE).
 
 Some distributions and systems provide build recipes (Gentoo, pkgsrc, AUR) while others ship built binaries (Debian, Fedora, openSUSE) ready to be used.
 
 Some distributions require the packager to build and upload the binaries on his own machine others use build systems.
 
-Packages are usually signed/verified. For example the Open Build Service will check whether the tarball that is in a project actually is the same as the upstream tarball (if you use the URL in the spec file), it can then also check a hash (if provided) and also the author in case upstream signed the tarball with their GPG key.
-It then builds the package for the specified architectures and will sign those packages.
+To maintain integrity of packages, today these will be are usually signed and signatures are verified prior to installation. For example the Open Build Service will check whether the tarball that is in a project actually is the same as the upstream tarball (if you use the URL in the spec file), it can then also check a hash (if provided) and also the author in case upstream signed the tarball with their GPG key.
+It then builds the package for the specified architectures and will sign those packages with repository key.
 
 By the way, the Open Build service can not only build rpms for openSUSE. It can also build packages for Fedora, RHEL, Arch, Debian, Ubuntu, AppImages..
 
-We recommend to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) now. Even if you are not interested in becoming a packager for an RPM based distribution this will serve as a good introducution.
+It's recommend to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) now. Even if you are not interested in becoming a packager for an RPM based distribution this will serve as a good introduction.
 
-## What is a package maintainer
-A packager/package maintainer is the person who makes this magic happen.
+## Who is a package maintainer?
+A packager or a package maintainer is the person who makes this magic happen.
 Thanks to them you can easily install software using your package manager eg `zypper install libreoffice`.
 
 # Tasks
 
 ## What does it entail to be a packager?
 
-* Packaging software from scratch (creating build recipe, a deb rpm ebuild and so on).
-* Following the rules, guidelines and regulations of your particular distribution when packaging new software.
-* Tracking upstream activity or at least releases.
-* Being aware and getting notified about new security issues of your packages
-* React on user bugreports. Categorize them: valid, invalid, configuration mistake, user mistake, valid bug..
+* Package software from scratch (creating build recipe, a deb rpm ebuild and so on).
+* Follow rules and guidelines of your particular distribution when packaging new software.
+* Track upstream activity or at least new releases.
+* Be aware and/or get notified about new security issues of your packages
+* React to bugreports and categorize them as valid, invalid, configuration mistake, user mistake, valid bug..
 * Debug software and reproduce bugs.
-* Patch your package and provide fixes. Might entail coordinating with upstream or forwarding the bug entirely to them.
-* Send your downstream fixes to the upstream project so that everyone benefits from it.
-* Coordinate with other maintainers (several maintainers for one project, dependency/library maintainers, other experts).
-
-## Eating your own dog food
-It helps tremendously if the maintainer is using the software themselves.
-If something is broken they will be motivated to fix it swiftly.
-And their usage basically is a big testing phase.
+* Patch your package and provide fixes. This may entail coordinating with upstream or forwarding the bug entirely to them.
+* Forward your fixes to the upstream project so that everyone benefits from it, including you when new version is released.
+* Coordinate with other maintainers. There can be several maintainers for one package.
 
 ## Staying up to date
-In a perfect world package maintainers would be in close contact with upstream.
-Monitor their development and take important bugfixes.
+In a perfect world, you, as package maintainers, are in close contact with upstream.
+You monitor their development and take important bugfixes.
 
 Here are some ways how you can monitor a project or get notified about new releases:
 * Join the `-announce` mailing list of the project.
@@ -107,12 +109,12 @@ To get an overview of which distro ships which version of a particular software 
 [maintainer.opensuse.org](https://maintainer.opensuse.org/) also tracks packages from various sources.
 
 ## Updates
-Don't hit and run. Doing just a version bump is not enough when updating your package.
+Try not be to be "hit and run" maintainer. Doing just a version bump is not enough when updating your package.
 
 You should also:
 * check that it builds
 * write a changelog with changes interesting for users (depending on distribution guidelines)
-* run the upstream testsuite
+* run the upstream testsuite, ideally as part of the build process
 * test it yourself (best is if the maintainer themself is a regular user of the software)
 * run your distribution tests (openSUSE, Debian and Fedora use [openQA](http://open.qa/) for automated tests)
 
@@ -120,22 +122,22 @@ If there are too many (known) issues with the new version you need to decide whe
 
 Rolling release distributions want the *latest working* version and not the latest no matter whether broken or not.
 
-If the update is a point release with fixes only you need to consider whether you have to update stable repositories as well.
+If the update is a point release with bug fixes only, you need to consider whether you have to update stable repositories as well.
 
 ## License
 The software you package will come with a license. You need to be aware which licenses your distribution allows to ship in their repositories.
 You can find a list of licenses and their identifier on the [SPDX website](https://spdx.org/licenses/).
 
 ## Reproducibility
-Since most distributions ship binary packages and attackers could attack the build system it is useful to have a way to verify the packages.
+Since most distributions ship binary packages and attackers could attack the build system, it is useful to have a way to verify these packages.
 Various entities could follow the build instructions and verify whether the result is the same.
 Packagers can help the [Reproducible builds](https://reproducible-builds.org/) project by ensuring their maintained software can be build reproducibly.
 
 # Technical
 
 ## Coredump
-A coredump is a file which contains the memory of a process. We can configure our system to create them when a program terminates unexpectedly. Like when a segmentation fault occurs.
-A seg fault happens when a program tries to access memory that it should not access.
+A coredump is a file which contains the memory of a process. We can configure our system to create them when a program terminates unexpectedly, for example, when a segmentation fault occurs.
+A segfault happens when a program tries to access memory that it should not access.
 Read up on how to configure core dumps on your system. And check `ulimit`.
 
 * [Linux core dump analysis](https://sergioprado.blog/linux-core-dump-analysis/) by [sergioprado](https://github.com/sergioprado).
@@ -150,7 +152,7 @@ Diff is a command line tool for comparing two files or directories.
 
 ### Example
 
-We have an upstream tarball and want to create a patch with some changes:
+You have an upstream tarball and want to create a patch with the changes:
 
 ```
 tar xfv upstream-version.tar.gz
@@ -162,14 +164,14 @@ diff -urEbw upstream-version upstream-version.new > my.patch
 ## patch
 Patch is a command line tool that applies a diff output file (patch) to an original file.
 
-One important parameter is `-p` which strips leading slashes, basically ignoring parts of the path.
+One important parameter is `-p` which strips leading path segments, basically ignoring parts of the path.
 
 For patches created by git you will usually use `-p1` to apply them.
 
 ### Example
 
 ```
-patch < my.patch
+patch -p1 < my.patch
 ```
 
 ## quilt
@@ -214,7 +216,9 @@ Instead of `quilt edit file` you could also use `quilt add file` and `$EDITOR fi
 Now we have a new file `tiff-security-fix-1.patch` which we can apply in the spec file.
 
 ### Edit an existing patch
-After initializing of a source tree use quilt push X, where X stands for the number of patches you want to apply. Use this command in order to get to the position of the patch you want to alter. Afterwards just edit the file corresponding to the patch and refresh this patch. If you edit a file that isn't contained in the patch, remember to add this file by quilt add.
+After initializing of a source tree, use `quilt push X`, where `X` stands for the number of patches you want to apply. Use this command in order to get to the position of the patch you want to alter. Afterwards just edit the file corresponding to the patch and refresh this patch. If you edit a file that isn't contained in the patch, remember to add this file by quilt add.
+
+A shortcut here to make sure that the file is tracked by quilt before editing it, you can use `quilt edit $(file)`.
 
 ## wiggle
 [wiggle](https://github.com/neilbrown/wiggle/) applies rejected patches and performs word-wise diffs.
@@ -320,6 +324,8 @@ Useful for developers and maintainers. It can also search only specific file typ
 For example `ack --cc close` searches all C files for the word `close`.
 `ag` is yet a little faster than ack and ignores files mentioned in `.gitignore`. Additionally it can search compressed files.
 
+HINT: When in a git repository, instead of using `grep`, try `git grep` to quickly search through the indexed files.
+
 # Debugging
 The following tools will mostly be about debugging.
 
@@ -338,7 +344,8 @@ The following tools will mostly be about debugging.
 Basic example that shows how to use gdb in general.
 
 ```
-cat main.c
+> cat main.c
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -448,7 +455,8 @@ They display information about object files and can be used to view an executabl
 * [autoup](https://github.com/dirkmueller/changesgen/blob/main/autoup.py) searches on repology and tests whether updating to those would work in OBS
 
 ## The packaging process
-Even if you are not interested in RPM we would like to suggest to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) since it gives a good overview and introduction.
+Even if you are not interested in RPM, we would like to suggest to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) since it gives a good overview and introduction.
+For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/) has all important details, pay especial attention to the [Debian Policy](https://www.debian.org/doc/debian-policy/)
 
 Then see the following system specific chapters here according to your interest.
 Generally we would recommend to skim also over the ones that are not your main focus.
@@ -473,6 +481,8 @@ git send-email --smtp-debug --smtp-ssl-cert-path "" --to="buildroot@busybox.net"
 ```
 
 ### Debian
+* [Debian Developer's Corner](https://www.debian.org/devel/)
+* [Debian Policy](https://www.debian.org/doc/debian-policy/)
 * [Debian New Maintainers' Guide](https://www.debian.org/doc/manuals/maint-guide/)
 * [Packaging on the Debian wiki](https://wiki.debian.org/Packaging)
 * [Debian Developer's Reference](https://www.debian.org/doc/manuals/maint-guide/index.en.html)
