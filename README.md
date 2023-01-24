@@ -8,7 +8,7 @@ Goals:
 * short general introduction for newcomer Linux geeks on what a package is and why we have them
 * general collection of tools that packagers use
 * general collection of tips, snippets and best practises useful for packagers of all distributions and systems
-* distribution/system specifc cheat sheets, how tos, walk throughs and hints
+* distribution/system specific cheat sheets, how tos, walk throughs and hints
 
 This guide will (for now) focus on traditional packaging, not on containerized applications.
 
@@ -22,7 +22,7 @@ Cover:
 ## Software
 *This will not be an accurate history lesson. We just want to give readers an idea*
 
-In the early days people were sitting infront of their Slackware machine and when they wanted to install a new software they had to do this by hand.
+In the early days people were sitting in front of their Slackware machine and when they wanted to install a new software they had to do this by hand.
 They got a tarball with the sources from a website, via mail(ing list), from an (FTP) server, from CVS and so on.
 They inspected the sources and learned how to build the software.
 A popular way are/were Makefiles.
@@ -62,10 +62,10 @@ It then builds the package for the specified architectures and will sign those p
 
 By the way, the Open Build service can not only build rpms for openSUSE. It can also build packages for Fedora, RHEL, Arch, Debian, Ubuntu, AppImages..
 
-We recommend to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) now. Even when you are not interested in becoming a packager for an RPM based distribution this will serve as a good introdcution.
+We recommend to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) now. Even if you are not interested in becoming a packager for an RPM based distribution this will serve as a good introducution.
 
 ## What is a package maintainer
-A packager/packgage maintainer is the person who makes this magic happen.
+A packager/package maintainer is the person who makes this magic happen.
 Thanks to them you can easily install software using your package manager eg `zypper install libreoffice`.
 
 # Tasks
@@ -90,7 +90,7 @@ Here are some ways how you can monitor a project or get notified about new relea
 * Join the `-announce` mailing list of the project.
 * *watch* the project on GitHub/GitLab (a button in the top right corner).
 * Some distributions have their own tooling that reminds you about new releases. Debian uses a [watch file](https://wiki.debian.org/debian/watch).
-* Subscribe to the projects RSS feed. If they use GitHub (and maybe Gitlab etc as well) they automatically publish an RSS feed eg. `https://github.com/profanity-im/profanity/releases.atom`. I use the newsboat RSS reader and each morning check for new releases via `newsboat -u ~/watchedprojects.rss`.
+* Subscribe to the projects RSS feed. If they use GitHub (and maybe GitLab etc as well) they automatically publish an RSS feed eg. `https://github.com/profanity-im/profanity/releases.atom`. I use the newsboat RSS reader and each morning check for new releases via `newsboat -u ~/watchedprojects.rss`.
 * Use [nvchecker](https://github.com/lilydjwg/nvchecker).
 * Monitor their websites via [urlwatch](https://thp.io/2008/urlwatch/).
 * Use the website [fresh code](https://freshcode.club/).
@@ -121,7 +121,7 @@ You can find a list of licenses and their identifier on the [SPDX website](https
 
 ## Reproducibility
 Since most distributions ship binary packages and attackers could attack the build system it is useful to have a way to verify the packages.
-Various entities could follow the build instructions and verify wheether the result is the same.
+Various entities could follow the build instructions and verify whether the result is the same.
 Packagers can help the [Reproducible builds](https://reproducible-builds.org/) project by ensuring their maintained software can be build reproducibly.
 
 # Technical
@@ -436,7 +436,7 @@ ldd ./src/myprog
 They display information about object files and can be used to view an executable in assembly.
 
 # Scripts and helpers
-* [release-notes-scraper](https://github.com/dcermak/release-notes-scraper) - grab the release notes for projects from github that do not keep a CHANGELOG, but publish their release notes via the releases page.
+* [release-notes-scraper](https://github.com/dcermak/release-notes-scraper) - grab the release notes for projects from GitHub that do not keep a CHANGELOG, but publish their release notes via the releases page.
 * [changesgen](https://github.com/dirkmueller/changesgen/blob/main/changesgen.py) automates writing a (openSUSE) changes file.
 * [autoup](https://github.com/dirkmueller/changesgen/blob/main/autoup.py) searches on repology and tests whether updating to those would work in OBS
 
@@ -460,7 +460,7 @@ git checkout -b libstrophe-update-xxx
 git add package/libstrophe/libstrophe.{mk,hash}
 git commit #write a nice message. use git log to see message of others
 # create a patch
-git format-patch -M -n -s -o outgoing origin/maste
+git format-patch -M -n -s -o outgoing origin/master
 # send the patch to the ml
 git send-email --smtp-debug --smtp-ssl-cert-path "" --to="buildroot@busybox.net" outgoing/0001-mypatchname.patch
 ```
