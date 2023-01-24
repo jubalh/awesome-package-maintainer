@@ -99,6 +99,8 @@ Here are some ways how you can monitor a project or get notified about new relea
 
 To get an overview of which distro ships which version of a particular software we like to use [repology](https://repology.org/). For example see this [overview](https://repology.org/project/profanity/versions).
 
+[maintainer.opensuse.org](https://maintainer.opensuse.org/) also tracks packages from various sources.
+
 ## Updates
 Don't hit and run. Doing just a version bump is not enough when updating your package.
 
@@ -487,6 +489,8 @@ Then, in order:
 * [How to contribute to Factory](https://en.opensuse.org/openSUSE:How_to_contribute_to_Factory) - learn the workflow and some more tricks
 * [RPM Packaging Guide](https://rpm-packaging-guide.github.io/) - about the basics of RPM packaging
 * Read the RPM section of this readme as well.
+
+[maintainers.opensuse.org](https://maintainer.opensuse.org/) is a helpful tool listing all the maintainers of a package, comparing the versions in differnt distributions, pointing to the devel project etc.
 
 #### Quickstart
 Install
