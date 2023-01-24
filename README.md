@@ -64,7 +64,7 @@ Some distributions and systems provide build recipes (Gentoo, pkgsrc, AUR) while
 
 Some distributions require the packager to build and upload the binaries on his own machine others use build systems.
 
-To maintain integrity of packages, today these will be are usually signed and signatures are verified prior to installation. For example the Open Build Service will check whether the tarball that is in a project actually is the same as the upstream tarball (if you use the URL in the spec file), it can then also check a hash (if provided) and also the author in case upstream signed the tarball with their GPG key.
+To maintain integrity of packages, today these will be usually signed and signatures are verified prior to installation. For example the Open Build Service will check whether the tarball that is in a project actually is the same as the upstream tarball (if you use the URL in the spec file), it can then also check a hash (if provided) and also the author in case upstream signed the tarball with their GPG key.
 It then builds the package for the specified architectures and will sign those packages with repository key.
 
 By the way, the Open Build service can not only build rpms for openSUSE. It can also build packages for Fedora, RHEL, Arch, Debian, Ubuntu, AppImages..
