@@ -518,7 +518,7 @@ Configure osc `$EDITOR $HOME/.config/osc/oscrc`.
 ```
 [https://api.opensuse.org]
 user = <youruser>
-pass = <youremail>
+pass = <yourpassword>
 email = <youremail>
 ```
 
