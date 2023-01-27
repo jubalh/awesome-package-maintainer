@@ -1,9 +1,6 @@
 # HOWTO Awesome Package Maintainer!
 *or How to Become a Packager*
 
-***WIP*** I'm not yet sure how to organize this.
-Let's collect all information now. We can still reorganize and restructure later.
-
 Goals:
 * short general introduction on what are packages and why we have them
 * general collection of tools that packagers use
