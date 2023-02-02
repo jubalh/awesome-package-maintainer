@@ -451,21 +451,21 @@ They display information about object files and can be used to view an executabl
 * [changesgen](https://github.com/dirkmueller/changesgen/blob/main/changesgen.py) automates writing a (openSUSE) changes file.
 * [autoup](https://github.com/dirkmueller/changesgen/blob/main/autoup.py) searches on repology and tests whether updating to those would work in OBS
 
-## The packaging process
+# The packaging process
 Even if you are not interested in RPM, we would like to suggest to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) since it gives a good overview and introduction.
 
 Then see the following system specific chapters here according to your interest.
 Generally we would recommend to skim also over the ones that are not your main focus.
 
-### Arch Linux
+## Arch Linux
 * [Arch Build System](https://wiki.archlinux.org/title/Arch_Build_System)
 * [Creating Arch Packages](https://wiki.archlinux.org/title/Creating_packages)
 * [Creating Arch Packages in OBS](https://wiki.archlinux.org/title/Creating_packages_for_other_distributions#Creating_Arch_packages_in_OBS_with_OSC)
 
-### Buildroot
+## Buildroot
 * [Contribute](https://buildroot.org/downloads/manual/manual.html#_contributing_to_buildroot) to Buildroot
 
-#### Quickstart
+### Quickstart
 
 Create and send a patch to the mailing list:
 ```
@@ -481,7 +481,7 @@ git format-patch -M -n -s -o outgoing origin/master
 git send-email --smtp-debug --smtp-ssl-cert-path "" --to="buildroot@busybox.net" outgoing/0001-mypatchname.patch
 ```
 
-### Debian
+## Debian
 For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/) has all important details, pay especial attention to the [Debian Policy](https://www.debian.org/doc/debian-policy/).
 
 * [Debian Developer's Corner](https://www.debian.org/devel/)
@@ -491,7 +491,7 @@ For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/)
 * [Debian Developer's Reference](https://www.debian.org/doc/manuals/maint-guide/index.en.html)
 * [Salsa](https://salsa.debian.org/public) GitLab instance to host package sources.
 
-### Fedora
+## Fedora
 * [Packaging Tutorial: GNU Hello](https://docs.fedoraproject.org/en-US/package-maintainers/Packaging_Tutorial_GNU_Hello/)
 * [RPM Packaging Guide](https://rpm-packaging-guide.github.io/) - about the basics of RPM packaging
 * [Fedora Packaging Guidelines](https://docs.fedoraproject.org/en-US/packaging-guidelines/)
@@ -501,12 +501,12 @@ For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/)
 * [pagure](https://pagure.io/) - code hosting.
 * Read the RPM section of this readme as well.
 
-### Gentoo
+## Gentoo
 * [Gentoo devmanual](https://devmanual.gentoo.org/)
 
 We recommend to use [portage with git](https://wiki.gentoo.org/wiki/Portage_with_Git).
 
-### openSUSE
+## openSUSE
 openSUSE develops and uses the [Open Build System](https://openbuildservice.org/).
 It is a quite powerful generic system to build and distribute packages from sources in an automatic, consistent and reproducible way.
 It can not only build rpm packages for openSUSE but also packages for Debian, Ubuntu, Fedora, Arch Linux, AppImages and more.
@@ -527,12 +527,12 @@ Then, in order:
 
 [maintainers.opensuse.org](https://maintainer.opensuse.org/) is a helpful tool listing all the maintainers of a package, comparing the versions in differnt distributions, pointing to the devel project etc.
 
-#### Quickstart
+### Setup
 Install
 * [grc](https://github.com/garabik/grc) (`zypper in grc`) to have colorized and more readable output when building with `grc osc build`.
 * [spec-cleaner](https://github.com/rpm-software-management/spec-cleaner) (`zypper in spec-cleaner`) to clean the spec file according to the style guide.
 
-##### Configure osc
+### Configure osc
 Configure osc `$EDITOR $HOME/.config/osc/oscrc`.
 
 ```
@@ -569,7 +569,7 @@ yourusername ALL = NOPASSWD: /usr/bin/build
 yourusername ALL = NOPASSWD: /usr/bin/osc
 ```
 
-##### Create a new package
+### Create a new package
 ```
 # create the package in your OBS home
 osc meta pkg -e home:myusername awesomenewpackage
@@ -587,7 +587,7 @@ osc ci
 osc sr utilities
 ```
 
-##### Making changes to an existing package
+### Making changes to an existing package
 
 ```
 # branch the package. getpac will branch from the actual devel project automatically
@@ -607,7 +607,7 @@ osc ci
 osc sr
 ```
 
-##### Install all the build requirements of a package
+### Install all the build requirements of a package
 
 In case you want to develop on the program you might want a quick way to get all the build requirements:
 
@@ -615,7 +615,7 @@ In case you want to develop on the program you might want a quick way to get all
 zypper si -d profanity
 ```
 
-##### Find out which packages depend on a certain package
+### Find out which packages depend on a certain package
 Let's say you maintain the libstrophe library and want to find out which packages depend on in (in Factory on x86_64):
 
 ```
@@ -638,7 +638,7 @@ libstrophe :
    xmppc
 ```
 
-#### Blog(posts)
+### Blog(posts)
 * [RPM packaging for beginners](https://dominique.leuenberger.net/blog/2009/05/rpm-packaging-for-beginners/) by [DimStar77](https://github.com/DimStar77).
 * [Per service ulimits](https://nordisch.org/posts/per-service-ulimits/) by [darix](https://github.com/darix).
 * [Howto patch a rubygem based package?](https://nordisch.org/posts/howto-patch-a-rubygem-based-package/) by [darix](https://github.com/darix).
@@ -649,26 +649,26 @@ libstrophe :
 * [Debug a crash after it happened – without knowing about it upfront](https://dominique.leuenberger.net/blog/2014/04/debug-a-crash-after-it-happened-without-knowing-about-it-upfront/) by [DimStar77](https://github.com/DimStar77).
 * [How to find, debug and fix reproducibility issues in openSUSE OBS package build results](https://github.com/bmwiedemann/reproducibleopensuse/blob/master/howtodebug) by [bmwiedemann](https://github.com/bmwiedemann).
 
-### RPM
+## RPM
 * [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
 * [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) by [dmacvicar](https://github.com/dmacvicar).
 * [SUSE documentation on rpm and rpmbuild](https://documentation.suse.com/sles/15-SP1/html/SLES-all/cha-sw-cl.html#sec-rpm).
 
-#### Snippets and tricks
+### Snippets and tricks
 
-##### List files in a package
+#### List files in a package
 
 ```
 rpm -ql vim
 ```
 
-##### Find out which package owns a particular file
+#### Find out which package owns a particular file
 
 ```
 rpm -qf /usr/bin/vim
 ```
 
-##### Get expanded spec file from src.rpm
+#### Get expanded spec file from src.rpm
 Since rpm 4.18 you can find the parsed and expanded spec file in the src.rpm headers.
 This can be useful to know which values are actually used, what the macros were expanded to.
 Generally what the actual build recipe looked like.
