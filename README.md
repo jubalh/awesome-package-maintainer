@@ -11,10 +11,6 @@ Goals:
 
 This guide will (for now) focus on traditional packaging, not on containerized applications.
 
-## TODO
-Cover:
-* debuginfod
-
 # Introduction
 
 ## Eating your own sushi
@@ -146,6 +142,13 @@ Read up on how to configure core dumps on your system. And check `ulimit`.
 ## Debuginfo
 Debuginfo packages contain symbols that were stripped from the ELF binaries shipped with the normal packages.
 This reduces size by removing information unimportant for the general user. However once we want to debug this information might be valuable. They also contain the sources code of the binary.
+
+## Debuginfod
+[Debuginfod](https://sourceware.org/elfutils/Debuginfod.html) is a client/server that automatically distributes elf/dwarf/source-code from servers to clients such as debuggers across HTTP.
+
+This has the advantage that you don't need to install debuginfo packages manually.
+
+Various distributions run their own debuginfod server instances. Like for example [openSUSE](https://debuginfod.opensuse.org/), [Debian](https://debuginfod.debian.net/), [Arch Linux](https://debuginfod.archlinux.org/) or [[Ubuntu](https://debuginfod.ubuntu.com).
 
 # Tools
 
