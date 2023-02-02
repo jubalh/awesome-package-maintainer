@@ -682,6 +682,7 @@ rpm -ql nudoku nudoku-debugsource
 ```
 
 The debuginfo will be availalbe under: `/usr/lib/debug` as can be seen by:
+```
 rpm -ql nudoku nudoku-debuginfo
 /usr/lib/debug
 /usr/lib/debug/.build-id
