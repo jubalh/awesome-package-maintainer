@@ -118,6 +118,16 @@ Rolling release distributions want the *latest working* version and not the late
 
 If the update is a point release with bug fixes only, you need to consider whether you have to update stable repositories as well.
 
+## Security
+When a vulnerability is discovered they get reported at [MITRE](https://cve.mitre.org/) and a Common Vulnerabilities and Exposures or short CVE is created.
+
+They usually look like `CVE-YEAR-NUMBER`. You might have heard of [Heartbleed](https://heartbleed.com/) which for example got CVE-2014-0160 assigned.
+
+Once such a CVE is discovered, the security teams of a distribution get notified.
+They then fix the bug or forward the information to the maintainer which should fix the bug. This depends on the policies of the particular distribution.
+
+Some vulnerabilities are under an embargo and maintainers should not mention it publicly or release it until a certain date.
+
 ## License
 The software you package will come with a license. You need to be aware which licenses your distribution allows to ship in their repositories.
 You can find a list of licenses and their identifier on the [SPDX website](https://spdx.org/licenses/).
