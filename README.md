@@ -482,7 +482,7 @@ git send-email --smtp-debug --smtp-ssl-cert-path "" --to="buildroot@busybox.net"
 ```
 
 ### Debian
-For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/) has all important details, pay especial attention to the [Debian Policy](https://www.debian.org/doc/debian-policy/)
+For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/) has all important details, pay especial attention to the [Debian Policy](https://www.debian.org/doc/debian-policy/).
 
 * [Debian Developer's Corner](https://www.debian.org/devel/)
 * [Debian Policy](https://www.debian.org/doc/debian-policy/)
@@ -495,11 +495,11 @@ For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/)
 * [Packaging Tutorial: GNU Hello](https://docs.fedoraproject.org/en-US/package-maintainers/Packaging_Tutorial_GNU_Hello/)
 * [RPM Packaging Guide](https://rpm-packaging-guide.github.io/) - about the basics of RPM packaging
 * [Fedora Packaging Guidelines](https://docs.fedoraproject.org/en-US/packaging-guidelines/)
-* Read the RPM section of this readme as well.
 * [mock](https://rpm-software-management.github.io/mock/) - a simple chroot build environment manager for building RPMs.
 * [koji](https://koji.fedoraproject.org/koji/) - Fedoras build system.
 * [copr](https://copr.fedorainfracloud.org/) - buildsystem that allows contributors to create packages, put them in repositories, and make it easy for users to install the packages onto their system.
 * [pagure](https://pagure.io/) - code hosting.
+* Read the RPM section of this readme as well.
 
 ### Gentoo
 * [Gentoo devmanual](https://devmanual.gentoo.org/)
