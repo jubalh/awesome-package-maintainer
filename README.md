@@ -427,6 +427,18 @@ Then we start the program. It breaks at our first breakpoint.
 Here we investigate the values of the variables `a` and `b`.
 And then we continue to step through the program. At the end we look at the result.
 
+### Already running programs
+The above example started the program we wanted to investigate.
+If the program is already running you cat attach to it via its PID.
+Use `pidof` of `ps` to find out the PID.
+
+```
+$ pidof vi
+8140
+$ gdb
+(gdb) attach 8140
+```
+
 ## ltrace
 [ltrace](http://www.ltrace.org/) is a debugging program which runs a specified command until the command exits.  While the command is executing, ltrace intercepts and records both the dynamic library calls called by the executed process and the signals received by the executed process. 
 
