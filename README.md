@@ -121,7 +121,7 @@ If the update is a point release with bug fixes only, you need to consider wheth
 ## Security
 When a vulnerability is discovered they get reported at [MITRE](https://cve.mitre.org/) and a Common Vulnerabilities and Exposures or short CVE is created.
 
-They usually look like `CVE-YEAR-NUMBER`. You might have heard of [Heartbleed](https://heartbleed.com/) which for example got CVE-2014-0160 assigned.
+They usually look like `CVE-YEAR-NUMBER`. You might have heard of [Heartbleed](https://heartbleed.com/) which for example got [CVE-2014-0160](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0160) assigned.
 
 Once such a CVE is discovered, the security teams of a distribution get notified.
 They then fix the bug or forward the information to the maintainer which should fix the bug. This depends on the policies of the particular distribution.
