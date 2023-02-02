@@ -139,6 +139,26 @@ Read up on how to configure core dumps on your system. And check `ulimit`.
 * [Debug a crash after it happened – without knowing about it upfront](https://dominique.leuenberger.net/blog/2014/04/debug-a-crash-after-it-happened-without-knowing-about-it-upfront/) by [DimStar77](https://github.com/DimStar77).
 * [Per service ulimits](https://nordisch.org/posts/per-service-ulimits/) by [darix](https://github.com/darix).
 
+## Stack Trace
+A stack trace, or backtrace, is a list of functions that are active in a running program.
+One function calls another, so they are nested, and the program needs to record where it left one function. This is done on the stack. The backtrace is this list of active nested functions and can be useful to point us to the code which is buggy.
+
+When users report bugs they sometimes attach stack traces or coredumps. Or we maintainers ask them to do so.
+
+Debug symbols need to be installed or debuginfod enabled.
+Read the gdb section of this Readme to learn the basics of gdb.
+Once the program is started in gdb try to reproduce the crash.
+A backtrace can then be created via:
+```
+(gdb) thread apply all backtrace full
+```
+
+This is an example of what it might look like:
+```
+0x000000350a6c577f in *__GI___poll (fds=0xe27460, nfds=9, timeout=-1) at ../sysdeps/unix/sysv/linux/poll.c:83
+83          return INLINE_SYSCALL (poll, 3, CHECK_N (fds, nfds), nfds, timeout)
+```
+
 ## Debuginfo
 Debuginfo packages contain symbols that were stripped from the ELF binaries shipped with the normal packages.
 This reduces size by removing information unimportant for the general user. However once we want to debug this information might be valuable. They also contain the sources code of the binary.
