@@ -1,9 +1,11 @@
 # Awesome Package Maintainer
 *or How to Become a Packager*
 
+Hint: Use the GitHubs TOC icon at the upper left corner of this Readme for easier navigation.
+
 Goals:
 * short general introduction on what are packages and why we have them
-* general collection of tools that packagers use
+* general collection of tools and processes that packagers use and follow
 * general collection of tips, snippets and best practises useful for packagers of all distributions and systems
 * distribution/system specific cheat sheets, HOWTOs, walk throughs and hints
 
