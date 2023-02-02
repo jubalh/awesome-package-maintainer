@@ -458,6 +458,11 @@ For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/)
 Then see the following system specific chapters here according to your interest.
 Generally we would recommend to skim also over the ones that are not your main focus.
 
+### Arch Linux
+* [Arch Build System](https://wiki.archlinux.org/title/Arch_Build_System)
+* [Creating Arch Packages](https://wiki.archlinux.org/title/Creating_packages)
+* [Creating Arch Packages in OBS](https://wiki.archlinux.org/title/Creating_packages_for_other_distributions#Creating_Arch_packages_in_OBS_with_OSC)
+
 ### Buildroot
 * [Contribute](https://buildroot.org/downloads/manual/manual.html#_contributing_to_buildroot) to Buildroot
 
@@ -493,6 +498,10 @@ git send-email --smtp-debug --smtp-ssl-cert-path "" --to="buildroot@busybox.net"
 We recommend to use [portage with git](https://wiki.gentoo.org/wiki/Portage_with_Git).
 
 ### openSUSE
+openSUSE develops and uses the [Open Build System](https://openbuildservice.org/).
+It is a quite powerful generic system to build and distribute packages from sources in an automatic, consistent and reproducible way.
+It can not only build rpm packages for openSUSE but also packages for Debian, Ubuntu, Fedora, Arch Linux, AppImages and more.
+
 Start by creating an account on:
 * the issue tracker: https://bugzilla.opensuse.org/
 * the openSUSE Open Build Service (OBS): https://build.opensuse.org/
