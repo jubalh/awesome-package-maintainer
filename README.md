@@ -1,4 +1,4 @@
-# HOWTO Awesome Package Maintainer!
+# Awesome Package Maintainer
 *or How to Become a Packager*
 
 Goals:
