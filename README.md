@@ -129,6 +129,17 @@ Packagers can help the [Reproducible builds](https://reproducible-builds.org/) p
 
 # Technical
 
+## Debuginfo
+Debuginfo packages contain symbols that were stripped from the ELF binaries shipped with the normal packages.
+This reduces size by removing information unimportant for the general user. However once we want to debug this information might be valuable. They also contain the sources code of the binary.
+
+## Debuginfod
+[Debuginfod](https://sourceware.org/elfutils/Debuginfod.html) is a client/server that automatically distributes elf/dwarf/source-code from servers to clients such as debuggers across HTTP.
+
+This has the advantage that you don't need to install debuginfo packages manually.
+
+Various distributions run their own debuginfod server instances. Like for example [openSUSE](https://debuginfod.opensuse.org/), [Debian](https://debuginfod.debian.net/), [Arch Linux](https://debuginfod.archlinux.org/) or [[Ubuntu](https://debuginfod.ubuntu.com).
+
 ## Coredump
 A coredump is a file which contains the memory of a process. We can configure our system to create them when a program terminates unexpectedly, for example, when a segmentation fault occurs.
 A segfault happens when a program tries to access memory that it should not access.
@@ -159,16 +170,12 @@ This is an example of what it might look like:
 83          return INLINE_SYSCALL (poll, 3, CHECK_N (fds, nfds), nfds, timeout)
 ```
 
-## Debuginfo
-Debuginfo packages contain symbols that were stripped from the ELF binaries shipped with the normal packages.
-This reduces size by removing information unimportant for the general user. However once we want to debug this information might be valuable. They also contain the sources code of the binary.
+When the crashed program created a core dump you can use gdb to get a stack trace as well:
+```
+gdb $program $coredumpfile
 
-## Debuginfod
-[Debuginfod](https://sourceware.org/elfutils/Debuginfod.html) is a client/server that automatically distributes elf/dwarf/source-code from servers to clients such as debuggers across HTTP.
-
-This has the advantage that you don't need to install debuginfo packages manually.
-
-Various distributions run their own debuginfod server instances. Like for example [openSUSE](https://debuginfod.opensuse.org/), [Debian](https://debuginfod.debian.net/), [Arch Linux](https://debuginfod.archlinux.org/) or [[Ubuntu](https://debuginfod.ubuntu.com).
+(gdb) thread apply all backtrace full
+```
 
 # Tools
 
