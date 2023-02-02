@@ -487,6 +487,11 @@ git send-email --smtp-debug --smtp-ssl-cert-path "" --to="buildroot@busybox.net"
 ### Fedora
 * [Fedora Packaging Guidelines](https://docs.fedoraproject.org/en-US/packaging-guidelines/)
 
+### Gentoo
+* [Gentoo devmanual](https://devmanual.gentoo.org/)
+
+We recommend to use [portage with git](https://wiki.gentoo.org/wiki/Portage_with_Git).
+
 ### openSUSE
 Start by creating an account on:
 * the issue tracker: https://bugzilla.opensuse.org/
