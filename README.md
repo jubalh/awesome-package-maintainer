@@ -451,6 +451,15 @@ ldd ./src/myprog
 	libcurl.so.4 => /lib64/libcurl.so.4 (0x00007f36e4297000)
 ```
 
+## valgrind
+Valgrind is a suite of tools for profiling and debugging. We are mostly interested in the memory error detector functionality of it.
+
+It will track each bit of memory used by a program and can detect whether this memory is leaked, used twice, used before it has a value or freed twice.
+
+```
+G_SLICE=always-malloc G_DEBUG=gc-friendly  valgrind -v --tool=memcheck --leak-check=full --log-file=valgrind.log $program $arguments
+```
+
 ## readelf and objdump
 They display information about object files and can be used to view an executable in assembly.
 
