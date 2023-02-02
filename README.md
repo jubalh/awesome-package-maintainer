@@ -13,7 +13,6 @@ This guide will (for now) focus on traditional packaging, not on containerized a
 
 ## TODO
 Cover:
-* debug symbols
 * debuginfod
 
 # Introduction
@@ -143,6 +142,10 @@ Read up on how to configure core dumps on your system. And check `ulimit`.
 * [How to get a core dump for a segfault on Linux](https://jvns.ca/blog/2018/04/28/debugging-a-segfault-on-linux/) by [jvns](https://github.com/jvns).
 * [Debug a crash after it happened – without knowing about it upfront](https://dominique.leuenberger.net/blog/2014/04/debug-a-crash-after-it-happened-without-knowing-about-it-upfront/) by [DimStar77](https://github.com/DimStar77).
 * [Per service ulimits](https://nordisch.org/posts/per-service-ulimits/) by [darix](https://github.com/darix).
+
+## Debuginfo
+Debuginfo packages contain symbols that were stripped from the ELF binaries shipped with the normal packages.
+This reduces size by removing information unimportant for the general user. However once we want to debug this information might be valuable. They also contain the sources code of the binary.
 
 # Tools
 
@@ -638,6 +641,44 @@ whatdependson libstrophe
 libstrophe :
    profanity
    xmppc
+```
+
+### Install debuginfo package
+
+List your repositories with `zypper lr`. There should be one with the name ` Main Repository (DEBUG)`.
+It might be disabled so enable it with `zypper mr --enable NUMBER`.
+
+```
+zypper in nudoku-debuginfo
+...
+The following 2 NEW packages are going to be installed:
+  nudoku-debuginfo nudoku-debugsource
+```
+
+As we can see they are split in the debuginfo package and a package containing the source code.
+
+The source code will be installed under `/usr/src/debug` as can be seen by:
+```
+rpm -ql nudoku nudoku-debugsource
+/usr/src/debug/nudoku-2.1.0-1.12.x86_64
+/usr/src/debug/nudoku-2.1.0-1.12.x86_64/src
+/usr/src/debug/nudoku-2.1.0-1.12.x86_64/src/main.c
+/usr/src/debug/nudoku-2.1.0-1.12.x86_64/src/outp.c
+/usr/src/debug/nudoku-2.1.0-1.12.x86_64/src/outp.h
+/usr/src/debug/nudoku-2.1.0-1.12.x86_64/src/sudoku.c
+/usr/src/debug/nudoku-2.1.0-1.12.x86_64/src/sudoku.h
+```
+
+The debuginfo will be availalbe under: `/usr/lib/debug` as can be seen by:
+rpm -ql nudoku nudoku-debuginfo
+/usr/lib/debug
+/usr/lib/debug/.build-id
+/usr/lib/debug/.build-id/d9
+/usr/lib/debug/.build-id/d9/a534c47a4b2def13daa6ba59507b5fbd8ae3d2
+/usr/lib/debug/.build-id/d9/a534c47a4b2def13daa6ba59507b5fbd8ae3d2.debug
+/usr/lib/debug/usr
+/usr/lib/debug/usr/bin
+/usr/lib/debug/usr/bin/nudoku-2.1.0-1.12.x86_64.debug
 ```
 
 ### Blog(posts)
