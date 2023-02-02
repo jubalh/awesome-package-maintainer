@@ -489,6 +489,7 @@ For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/)
 * [Debian New Maintainers' Guide](https://www.debian.org/doc/manuals/maint-guide/)
 * [Packaging on the Debian wiki](https://wiki.debian.org/Packaging)
 * [Debian Developer's Reference](https://www.debian.org/doc/manuals/maint-guide/index.en.html)
+* [Salsa](https://salsa.debian.org/public) GitLab instance to host package sources.
 
 ### Fedora
 * [Packaging Tutorial: GNU Hello](https://docs.fedoraproject.org/en-US/package-maintainers/Packaging_Tutorial_GNU_Hello/)
