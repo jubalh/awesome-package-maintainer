@@ -453,7 +453,6 @@ They display information about object files and can be used to view an executabl
 
 ## The packaging process
 Even if you are not interested in RPM, we would like to suggest to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) since it gives a good overview and introduction.
-For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/) has all important details, pay especial attention to the [Debian Policy](https://www.debian.org/doc/debian-policy/)
 
 Then see the following system specific chapters here according to your interest.
 Generally we would recommend to skim also over the ones that are not your main focus.
@@ -483,6 +482,8 @@ git send-email --smtp-debug --smtp-ssl-cert-path "" --to="buildroot@busybox.net"
 ```
 
 ### Debian
+For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/) has all important details, pay especial attention to the [Debian Policy](https://www.debian.org/doc/debian-policy/)
+
 * [Debian Developer's Corner](https://www.debian.org/devel/)
 * [Debian Policy](https://www.debian.org/doc/debian-policy/)
 * [Debian New Maintainers' Guide](https://www.debian.org/doc/manuals/maint-guide/)
