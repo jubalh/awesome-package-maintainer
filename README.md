@@ -1,7 +1,7 @@
 # Awesome Package Maintainer
 *or How to Become a Packager*
 
-Hint: Use the GitHubs TOC icon at the upper left corner of this Readme for easier navigation.
+Hint: Use GitHubs TOC icon at the upper left corner of this Readme for easier navigation.
 
 Goals:
 * short general introduction on what are packages and why we have them
