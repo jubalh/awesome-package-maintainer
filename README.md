@@ -572,8 +572,6 @@ For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/)
 * [Gentoo devmanual](https://devmanual.gentoo.org/)
 * [Proxied Maintainer FAQ](https://wiki.gentoo.org/wiki/Proxied_Maintainer_FAQ)
 * [Contribute via Pull Requests](https://wiki.gentoo.org/wiki/GitHub_Pull_Requests)
-* [mgorny dev scripts](https://github.com/projg2/mgorny-dev-scripts)
-* [iwdevtools](https://github.com/ionenwks/iwdevtools) - tools to aid with Gentoo development, primarily intended for QA 
 * Join `#gentoo-dev-help` and `#gentoo-proxy-maint` on Libera.Chat
 
 We recommend to use [portage with git](https://wiki.gentoo.org/wiki/Portage_with_Git).
@@ -584,6 +582,9 @@ Useful tools:
 * [equery](https://wiki.gentoo.org/wiki/Equery)
 * [ekeyword](https://wiki.gentoo.org/wiki/Proxied_Maintainer_FAQ#Keywording_after_EAPI_bump)
 * [portageq](https://wiki.gentoo.org/wiki/Portageq)
+* [mgorny dev scripts](https://github.com/projg2/mgorny-dev-scripts) - [mgornys](https://github.com/mgorny) ebuild development scripts
+* [iwdevtools](https://github.com/ionenwks/iwdevtools) - tools to aid with Gentoo development, primarily intended for QA 
+* [ebump](https://wiki.gentoo.org/wiki/Gentoolkit) - ebuild revision bumper
 
 ### Set all keywords to unstable:
 
