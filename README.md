@@ -571,6 +571,7 @@ For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/)
 ## Gentoo
 * [Gentoo devmanual](https://devmanual.gentoo.org/)
 * [https://github.com/projg2/mgorny-dev-scripts](mgornys dev scripts)
+* Join `#gentoo-dev-help` and `#gentoo-proxy-maint` on Libera.Chat
 
 We recommend to use [portage with git](https://wiki.gentoo.org/wiki/Portage_with_Git).
 
@@ -582,6 +583,7 @@ It can not only build rpm packages for openSUSE but also packages for Debian, Ub
 Start by creating an account on:
 * the issue tracker: https://bugzilla.opensuse.org/
 * the openSUSE Open Build Service (OBS): https://build.opensuse.org/
+* Join `#opensuse-factory` on Libera.Chat
 
 Then, in order:
 * [Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial) - follow along style introduction
