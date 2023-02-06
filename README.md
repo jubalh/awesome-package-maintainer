@@ -571,9 +571,70 @@ For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/)
 ## Gentoo
 * [Gentoo devmanual](https://devmanual.gentoo.org/)
 * [mgorny dev scripts](https://github.com/projg2/mgorny-dev-scripts)
+* [Proxied Maintainer FAQ](https://wiki.gentoo.org/wiki/Proxied_Maintainer_FAQ)
+* [Contribute via Pull Requests](https://wiki.gentoo.org/wiki/GitHub_Pull_Requests)
 * Join `#gentoo-dev-help` and `#gentoo-proxy-maint` on Libera.Chat
 
 We recommend to use [portage with git](https://wiki.gentoo.org/wiki/Portage_with_Git).
+
+Useful tools:
+* [pkgdev](https://wiki.gentoo.org/wiki/Pkgdev)
+* [pkgcheck](https://wiki.gentoo.org/wiki/Pkgcheck)
+* [equery](https://wiki.gentoo.org/wiki/Equery)
+* [ekeyword](https://wiki.gentoo.org/wiki/Proxied_Maintainer_FAQ#Keywording_after_EAPI_bump)
+* [portageq](https://wiki.gentoo.org/wiki/Portageq)
+
+### Set all keywords to unstable:
+
+Use [ekeyword](https://wiki.gentoo.org/wiki/Proxied_Maintainer_FAQ#Keywording_after_EAPI_bump):
+```
+$ ekeyword ~all my-2.0.ebuild
+```
+
+### Query variables
+
+Use [portageq](https://wiki.gentoo.org/wiki/Portageq):
+```
+$ portageq distdir
+
+/var/cache/distfiles
+```
+
+### Find out which package owns a particular file
+
+Use [equery](https://wiki.gentoo.org/wiki/Equery):
+```
+$ equery b /usr/share/vim/vim90
+ * Searching for /usr/share/vim/vim90 ...
+app-editors/vim-core-9.0.1000 (/usr/share/vim/vim90)
+```
+
+#### List files in a package
+
+Use [equery](https://wiki.gentoo.org/wiki/Equery):
+```
+$ equery f vim
+ * Searching for vim ...
+ * Contents of app-editors/vim-9.0.1000:
+/usr
+/usr/bin
+/usr/bin/rview -> vim
+/usr/bin/rvim -> vim
+/usr/bin/vim
+/usr/bin/vimdiff -> vim
+/usr/share
+/usr/share/applications
+/usr/share/applications/vim.desktop
+/usr/share/bash-completion
+/usr/share/bash-completion/completions
+/usr/share/bash-completion/completions/ex -> vim
+/usr/share/bash-completion/completions/rview -> vim
+/usr/share/bash-completion/completions/rvim -> vim
+/usr/share/bash-completion/completions/vi -> vim
+/usr/share/bash-completion/completions/view -> vim
+/usr/share/bash-completion/completions/vim
+/usr/share/bash-completion/completions/vimdiff -> vim
+```
 
 ## openSUSE
 openSUSE develops and uses the [Open Build System](https://openbuildservice.org/).
