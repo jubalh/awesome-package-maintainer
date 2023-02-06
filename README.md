@@ -516,6 +516,7 @@ They display information about object files and can be used to view an executabl
 * [release-notes-scraper](https://github.com/dcermak/release-notes-scraper) - grab the release notes for projects from GitHub that do not keep a CHANGELOG, but publish their release notes via the releases page.
 * [changesgen](https://github.com/dirkmueller/changesgen/blob/main/changesgen.py) automates writing a (openSUSE) changes file.
 * [autoup](https://github.com/dirkmueller/changesgen/blob/main/autoup.py) searches on repology and tests whether updating to those would work in OBS
+* [mgornys Gentoo dev scripts](https://github.com/projg2/mgorny-dev-scripts)
 
 # The packaging process
 Even if you are not interested in RPM, we would like to suggest to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) since it gives a good overview and introduction.
@@ -569,6 +570,7 @@ For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/)
 
 ## Gentoo
 * [Gentoo devmanual](https://devmanual.gentoo.org/)
+* [https://github.com/projg2/mgorny-dev-scripts](mgornys dev scripts)
 
 We recommend to use [portage with git](https://wiki.gentoo.org/wiki/Portage_with_Git).
 
