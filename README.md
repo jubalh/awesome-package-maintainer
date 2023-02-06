@@ -570,7 +570,7 @@ For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/)
 
 ## Gentoo
 * [Gentoo devmanual](https://devmanual.gentoo.org/)
-* [https://github.com/projg2/mgorny-dev-scripts](mgornys dev scripts)
+* [mgorny dev scripts](https://github.com/projg2/mgorny-dev-scripts)
 * Join `#gentoo-dev-help` and `#gentoo-proxy-maint` on Libera.Chat
 
 We recommend to use [portage with git](https://wiki.gentoo.org/wiki/Portage_with_Git).
