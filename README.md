@@ -586,6 +586,12 @@ Useful tools:
 * [iwdevtools](https://github.com/ionenwks/iwdevtools) - tools to aid with Gentoo development, primarily intended for QA 
 * [ebump](https://wiki.gentoo.org/wiki/Gentoolkit) - ebuild revision bumper
 
+### Creating a new ebuild
+* Get a template from [Quickstart](https://devmanual.gentoo.org/quickstart/index.html)
+* Read about the process of [adding a new ebuild](https://devmanual.gentoo.org/ebuild-maintenance/new-ebuild/index.html)
+* [Generate the manifest](https://devmanual.gentoo.org/general-concepts/manifest/index.html) `ebuild foo.ebuild manifest`
+* Build it `ebuild foo.ebuild merge`. See `man ebuild`.
+
 ### Set all keywords to unstable:
 
 Use [ekeyword](https://wiki.gentoo.org/wiki/Proxied_Maintainer_FAQ#Keywording_after_EAPI_bump):
