@@ -118,6 +118,27 @@ Rolling release distributions want the *latest working* version and not the late
 
 If the update is a point release with bug fixes only, you need to consider whether you have to update stable repositories as well.
 
+## Bugs
+As a packager you need to be familiar with the particular bugtracker your distribution uses.
+
+[Bugzilla](https://www.bugzilla.org/) is used by:
+* [Arch Linux](https://bugs.archlinux.org/)
+* [Fedora](https://bugzilla.redhat.com/)
+* [Gentoo](https://bugs.gentoo.org/)
+* [openSUSE](https://bugzilla.opensuse.org/)
+
+Launchpad is used by:
+* [Ubuntu](https://bugs.launchpad.net/ubuntu)
+
+[GitHub](https://github.com/) is used by:
+* [NixOS](https://github.com/NixOS/nixpkgs/issues)
+
+[GitLab](https://about.gitlab.com/) is used by:
+* [Alpine](https://gitlab.alpinelinux.org/alpine/aports/-/issues)
+
+Additionally it would be good if you are used to the issue trackers used by the programs you maintain.
+This might be on [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), [Sourceforge](https://sourceforge.net/), [sourcehut](https://sr.ht/) or just a mailing list or custom solution.
+
 ## Security
 When a vulnerability is discovered they get reported at [MITRE](https://cve.mitre.org/) and a Common Vulnerabilities and Exposures or short CVE is created.
 
