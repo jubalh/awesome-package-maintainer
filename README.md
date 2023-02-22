@@ -595,7 +595,15 @@ For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/)
 * [Contribute via Pull Requests](https://wiki.gentoo.org/wiki/GitHub_Pull_Requests)
 * Join `#gentoo-dev-help` and `#gentoo-proxy-maint` on Libera.Chat
 
-We recommend to use [portage with git](https://wiki.gentoo.org/wiki/Portage_with_Git).
+We recommend to use [portage with git](https://wiki.gentoo.org/wiki/Portage_with_Git) and use that as your working tree as well.
+Edit `/etc/portage/repos.conf/gentoo.conf` to include:
+```
+volatile = no
+clone-depth = 0
+sync-depth = 0
+```
+This will make portage aware that there can be changes in the repo not done by portage and do none shallow git clones.
+This will See `man 5 portage` for more details.
 
 Useful tools:
 * [pkgdev](https://wiki.gentoo.org/wiki/Pkgdev)
