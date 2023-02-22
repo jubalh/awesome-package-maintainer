@@ -603,9 +603,10 @@ Useful tools:
 * [equery](https://wiki.gentoo.org/wiki/Equery)
 * [ekeyword](https://wiki.gentoo.org/wiki/Proxied_Maintainer_FAQ#Keywording_after_EAPI_bump)
 * [portageq](https://wiki.gentoo.org/wiki/Portageq)
-* [mgorny dev scripts](https://github.com/projg2/mgorny-dev-scripts) - [mgornys](https://github.com/mgorny) ebuild development scripts
 * [iwdevtools](https://github.com/ionenwks/iwdevtools) - tools to aid with Gentoo development, primarily intended for QA 
 * [ebump](https://wiki.gentoo.org/wiki/Gentoolkit) - ebuild revision bumper
+* [mgorny-dev-scripts](https://github.com/projg2/mgorny-dev-scripts) - [mgornys](https://github.com/mgorny) ebuild development scripts
+* [sam-gentoo-scripts](https://github.com/thesamesam/sam-gentoo-scripts) - [sams](https://github.com/thesamesam) Gentoo development scripts
 
 ### Creating a new ebuild
 * Get a template from [Quickstart](https://devmanual.gentoo.org/quickstart/index.html)
