@@ -131,6 +131,7 @@ Launchpad is used by:
 * [Ubuntu](https://bugs.launchpad.net/ubuntu)
 
 [GitHub](https://github.com/) is used by:
+* [Homebrew](https://github.com/Homebrew)
 * [NixOS](https://github.com/NixOS/nixpkgs/issues)
 
 [GitLab](https://about.gitlab.com/) is used by:
@@ -471,7 +472,7 @@ $ gdb
 ```
 
 ## ltrace
-[ltrace](http://www.ltrace.org/) is a debugging program which runs a specified command until the command exits.  While the command is executing, ltrace intercepts and records both the dynamic library calls called by the executed process and the signals received by the executed process. 
+[ltrace](http://www.ltrace.org/) is a debugging program which runs a specified command until the command exits.  While the command is executing, ltrace intercepts and records both the dynamic library calls called by the executed process and the signals received by the executed process.
 
 * [Using ltrace to debug a memory leak](https://jvns.ca/blog/2016/06/15/using-ltrace-to-debug-a-memory-leak/) by [jvns](https://github.com/jvns).
 
@@ -611,7 +612,7 @@ Useful tools:
 * [equery](https://wiki.gentoo.org/wiki/Equery)
 * [ekeyword](https://wiki.gentoo.org/wiki/Proxied_Maintainer_FAQ#Keywording_after_EAPI_bump)
 * [portageq](https://wiki.gentoo.org/wiki/Portageq)
-* [iwdevtools](https://github.com/ionenwks/iwdevtools) - tools to aid with Gentoo development, primarily intended for QA 
+* [iwdevtools](https://github.com/ionenwks/iwdevtools) - tools to aid with Gentoo development, primarily intended for QA
 * [ebump](https://wiki.gentoo.org/wiki/Gentoolkit) - ebuild revision bumper
 * [mgorny-dev-scripts](https://github.com/projg2/mgorny-dev-scripts) - [mgornys](https://github.com/mgorny) ebuild development scripts
 * [sam-gentoo-scripts](https://github.com/thesamesam/sam-gentoo-scripts) - [sams](https://github.com/thesamesam) Gentoo development scripts
