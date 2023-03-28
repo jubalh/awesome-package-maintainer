@@ -777,6 +777,12 @@ osc ci
 osc sr
 ```
 
+### Revert to a revision
+
+```
+osc copypac -r rev prj pkg prj pkg
+```
+
 ### Install all the build requirements of a package
 
 In case you want to develop on the program you might want a quick way to get all the build requirements:
