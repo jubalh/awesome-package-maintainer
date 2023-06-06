@@ -782,6 +782,16 @@ osc ci
 osc sr
 ```
 
+### Services
+OBS services are helpful to package git packages for example.
+Or Rust packages that use vendored tarballs.
+
+Read the OBS chapter on [using source services](https://openbuildservice.org/help/manuals/obs-user-guide/cha.obs.source_service.html) to learn how they work.
+
+And take a look at the [list of existing services](https://en.opensuse.org/openSUSE:Services).
+
+The [Packaging Rust Software](https://en.opensuse.org/openSUSE:Packaging_Rust_Software) article shows you how to use source services to package Rust software. It's a good example of services and contains a template to get you started.
+
 ### Revert to a revision
 
 ```
