@@ -740,6 +740,33 @@ yourusername ALL = NOPASSWD: /usr/bin/build
 yourusername ALL = NOPASSWD: /usr/bin/osc
 ```
 
+### Multiple OBS instances
+
+You can asign aliases to OBS instances.
+
+Edit `$HOME/.config/osc/oscrc`:
+
+```
+[https://api.opensuse.org]
+user = <youruser>
+pass = <yourpassword>
+email = <youremail>
+aliases = obs
+
+[https://api.anotherbuildsystem.org]
+user = <youruser>
+pass = <yourpassword>
+email = <youremail>
+aliases = abs
+```
+
+In your bashrc you could then have:
+```
+alias asc="osc -A abs"
+```
+
+To easily work on another instance: `asc co home:someone/package`
+
 ### Create a new package
 ```
 # create the package in your OBS home
