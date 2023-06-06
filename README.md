@@ -721,6 +721,7 @@ Some useful aliases for your bashrc/zshrc etc. If you use `grc` you could add th
 ```
 alias oscb="osc build --ccache --cpio-bulk-download --download-api-only"
 alias oscsd="osc service localrun download_files"
+alias oscsd2="osc service disabledrun download_files"
 ```
 
 So you don't have to provide a password each time you build a package you should add yourself to the sudoers file:
