@@ -758,6 +758,10 @@ osc ci
 osc sr utilities
 ```
 
+In the above example the sources will be downloaded using the `download_files` service.
+You should use URL to the upstream tarball in your spec file.
+OBS will later verify the tarball is the same like the one you added.
+
 ### Making changes to an existing package
 
 ```
