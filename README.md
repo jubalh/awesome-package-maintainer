@@ -934,6 +934,11 @@ Generally what the actual build recipe looked like.
 rpm -q --queryformat="%{Spec}" /path/to/src.rpm
 ```
 
+# Post packaging
+
+[pkgdiff](https://lvc.github.io/pkgdiff/) is a good tool to compare and visualize changes in packages.
+It supports a range of formats like rpm, deb, tar.gz.
+
 # Credit
 Thanks to everybody who contributed to this guide and to the authors of all the linked Websites, blogs, etc.
 
