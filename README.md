@@ -478,6 +478,13 @@ $ gdb
 (gdb) attach 8140
 ```
 
+### Extensions
+You can use plugins, scripts and tools to optmize your gdb usage for certain tasks.
+
+One example is [gef](https://github.com/hugsy/gef). It assists exploit developers and reverse-engineers when using old school GDB. It provides additional features to GDB using the Python API to assist during the process of dynamic analysis and exploit development. Application developers will also benefit from it, as GEF lifts a great part of regular GDB obscurity, avoiding repeating traditional commands, or bringing out the relevant information from the debugging runtime.
+
+![alt text](https://github.com/jubalh/awesome-package-maintainer/blob/master/img/gef.png?raw=true)
+
 ## ltrace
 [ltrace](http://www.ltrace.org/) is a debugging program which runs a specified command until the command exits.  While the command is executing, ltrace intercepts and records both the dynamic library calls called by the executed process and the signals received by the executed process.
 
