@@ -390,6 +390,13 @@ For example `ack --cc close` searches all C files for the word `close`.
 
 HINT: When in a git repository, instead of using `grep`, try `git grep` to quickly search through the indexed files.
 
+## perf
+perf is a tool that can be used to analyze performance and trace functions.
+
+## magic-trace
+[magic-trace](https://github.com/janestreet/magic-trace) is similar to perf.
+The key difference from perf is that instead of sampling call stacks throughout time, magic-trace uses Intel Processor Trace to snapshot a ring buffer of all control flow leading up to a chosen point in time. Then, you can explore an interactive timeline of what happened.
+
 # Debugging
 The following tools will mostly be about debugging.
 
