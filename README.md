@@ -823,6 +823,25 @@ osc ci
 osc sr
 ```
 
+### Testing changes
+
+Let's say you fixed a bug in one of your packages and want to run the reproducer to confirm that the bug is fixed.
+You don't want to install the package in question on your local machine, so one way of doing it is inside chroot. `osc` makes it easy to set everything up for you.
+
+```
+user@machine:~> osc build -x sassc --rsync-src ~/work/reproducers/libsass --rsync-dest /tmp/poc
+user@machine:~> osc chroot
+abuild@machine:~> sassc /tmp/poc/poc-CVE-2022-43357
+```
+
+Using the `-x` flag you can install more packages into the chroot, in this case `sassc`. This way you can install any development tools you need.
+You have all your reproducers in one directory, the two rsync parameters map them over into the chroot.
+Then you switch into it and run the poc.
+
+This is especially helpful because you can also run tests against other targets. Like against a certain version of SLE or openSUSE that differs from your locally installed one.
+
+With the `--prefer-pkgs` flag you can name a directory and `osc` build prefer the rpms inside over the ones from the official repo.
+
 ### Services
 OBS services are helpful to package git packages for example.
 Or Rust packages that use vendored tarballs.
