@@ -500,6 +500,95 @@ printf('R'Result: 5
 +++ exited (status 0) +++
 ```
 
+### Using ltrace to trace both userspace library calls, syscalls, and collect stack traces
+
+It's possible to use `ltrace` to produce very detailed output.
+As an example, we'll be compiling a very simple C program, then using `ltrace` to find a lot of information concerning its execution.
+
+Here's the C program:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+void first() {
+  char *ptr = malloc(sizeof(char) * 500);
+  free(ptr);
+  printf("First.\n");
+  second();
+}
+
+int main() {
+  first();
+}
+```
+
+We'll compile it disabling optimisations, and enabling debuginfo: `gcc -O0 -g main.c -o prog`
+
+And now we'll call `ltrace`, redirecting what it prints to `stderr`, as that's where the relevant information will show up: `ltrace -S -T -f -w 10 ./prog`
+
+Let's explain these flags, from `man ltrace`:
+
+`-S   Display system calls as well as library calls`
+This will be useful if you ever want to see the syscalls as well. So in this case, ltrace crosses into strace territory.
+
+`-T   Show  the  time  spent inside each call. This records the time difference between the beginning and the end of each call.`
+This is just some extra timing information, which may come in handy when doing simple performance analyses.
+
+`-f   Trace child processes as they are created by currently traced processes as a result of the fork(2) or clone(2) system calls.  The new process is attached immediately.`
+This is to trace every single subprocess/subthread.
+
+`-w, --where nr   Show backtrace of nr stack frames for each traced function. This option enabled only if elfutils or libunwind support was enabled at compile time.`
+Show a backtrace for each traced call.
+
+And here's some interesting output from this example:
+
+We can determine that `main()` calls `first()`, and it calls `malloc(500)`:
+```
+[pid 21637] malloc(500 <unfinished ...>
+[pid 21637] getrandom@SYS(0x7fb00bffcad8, 8, 1, 0x7fb00be13f50)                                                                                    = 8 <0.000024>
+ > libc.so.6(ptmalloc_init.part.0+0x37) [7fb00bea02c5]
+ > libc.so.6(__libc_malloc+0x216) [7fb00bea3bf4]
+ > prog(first+0x11) [4011a3]
+	main.c:14:15
+ > prog(main+0xd) [4011d8]
+	main.c:21:3
+ > libc.so.6(__libc_start_call_main+0x81) [7fb00be2a1ef]
+ > libc.so.6(__libc_start_main@@GLIBC_2.34+0x8a) [7fb00be2a2b8]
+ > prog(_start+0x26) [401094]
+	../sysdeps/x86_64/start.S:115
+```
+
+`malloc()` calls the `brk` syscall:
+```
+[pid 21637] brk@SYS(nil)                                                                                                                           = 0xc07000 <0.000012>
+ > libc.so.6(brk+0xd) [7fb00bf07ccb]
+ > libc.so.6(__sbrk+0xa8) [7fb00bf113e6]
+ > libc.so.6(__default_morecore@GLIBC_2.2.5+0x17) [7fb00bea0f35]
+ > libc.so.6(sysmalloc+0x56a) [7fb00bea1f58]
+ > libc.so.6(_int_malloc+0xf24) [7fb00bea3162]
+ > libc.so.6(tcache_init.part.0+0x34) [7fb00bea3282]
+ > libc.so.6(__libc_malloc+0x11f) [7fb00bea3afd]
+ > prog(first+0x11) [4011a3]
+	/home/martin/git/awesome-package-maintainer/main.c:14:15
+ > prog(main+0xd) [4011d8]
+	/home/martin/git/awesome-package-maintainer/main.c:21:3
+```
+
+`first()` calls `printf()`, which calls `puts()` from glibc, and it will invoke the `write` syscall:
+```
+[pid 21637] puts("First." <unfinished ...>
+[pid 21637] fstat@SYS(1, 0x7fffac04d890)                                                                                                           = 0 <0.000065>
+ > libc.so.6(__fstat64+0xd) [7fb00bf01c8b]
+ > libc.so.6(_IO_file_doallocate+0x5d) [7fb00be7bc1b]
+ > libc.so.6(_IO_doallocbuf+0x4a) [7fb00be8b7f8]
+ > libc.so.6(_IO_file_overflow@@GLIBC_2.2.5+0x199) [7fb00be897b7]
+ > libc.so.6(_IO_file_xsputn@@GLIBC_2.2.5+0x108) [7fb00be8a356]
+ > libc.so.6(_IO_puts+0x7a) [7fb00be7e608]
+ > prog(first+0x2b) [4011bd]
+	/home/martin/git/awesome-package-maintainer/main.c:16:3
+```
+
 ## strace
 [strace](https://strace.io/) monitors and tampers with interactions between processes and the kernel. Useful for watching system calls and signals.
 
