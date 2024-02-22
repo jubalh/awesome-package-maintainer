@@ -286,6 +286,7 @@ A shortcut here to make sure that the file is tracked by quilt before editing it
 
 ## wiggle
 [wiggle](https://github.com/neilbrown/wiggle/) applies rejected patches and performs word-wise diffs.
+So it will apply everything even things that may not be correct. It is quite powerful but needs extra careful checking.
 
 1. Use quilt to apply patch
 2. If quilt failed, force it to apply as much as possible by the parameter `-f` (force). It applies what it is able to and saves the rest to `*.rej` (rejected) files
