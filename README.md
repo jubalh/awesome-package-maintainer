@@ -170,7 +170,7 @@ This reduces size by removing information unimportant for the general user. Howe
 
 This has the advantage that you don't need to install debuginfo packages manually.
 
-Various distributions run their own debuginfod server instances. Like for example [openSUSE](https://debuginfod.opensuse.org/), [Debian](https://debuginfod.debian.net/), [Arch Linux](https://debuginfod.archlinux.org/) or [Ubuntu](https://debuginfod.ubuntu.com).
+Various distributions run their own debuginfod server instances. Like for example [Debian](https://debuginfod.debian.net/), [Arch Linux](https://debuginfod.archlinux.org/) or [Ubuntu](https://debuginfod.ubuntu.com).
 
 ## Coredump
 A coredump is a file which contains the memory of a process. We can configure our system to create them when a program terminates unexpectedly, for example, when a segmentation fault occurs.
