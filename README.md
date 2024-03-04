@@ -1018,6 +1018,9 @@ rpm -ql nudoku nudoku-debuginfo
 /usr/lib/debug/usr/bin/nudoku-2.1.0-1.12.x86_64.debug
 ```
 
+### Useful scripts
+* [openSUSE-helpers](https://github.com/DimStar77/openSUSE-helpers) by [DimStar77](https://github.com/DimStar77).
+
 ### Blog(posts)
 * [RPM packaging for beginners](https://dominique.leuenberger.net/blog/2009/05/rpm-packaging-for-beginners/) by [DimStar77](https://github.com/DimStar77).
 * [Per service ulimits](https://nordisch.org/posts/per-service-ulimits/) by [darix](https://github.com/darix).
