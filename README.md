@@ -382,12 +382,15 @@ meld X11:LXQt X11:LXQt:git
 
 ![alt text](https://github.com/jubalh/awesome-package-maintainer/blob/master/img/meld-2.png?raw=true)
 
-## grep, ack, ag
-These are tools to search in files. `grep` is the oldest of them.
-`ack` is faster since it skips some directories like the `.git` and `.subversion` directories by default.
+## grep, ack, ag, rg
+These are tools to search in files. [grep](https://www.gnu.org/software/grep/) is the oldest of them.
+[ack](https://beyondgrep.com/) is faster since it skips some directories like the `.git` and `.subversion` directories by default.
 Useful for developers and maintainers. It can also search only specific file types.
 For example `ack --cc close` searches all C files for the word `close`.
-`ag` is yet a little faster than ack and ignores files mentioned in `.gitignore`. Additionally it can search compressed files.
+[ag](https://geoff.greer.fm/ag/), also known as *The Silver Searcher*, is yet a little faster than ack and ignores files mentioned in `.gitignore`. Additionally it can search compressed files.
+[ripgrep](https://github.com/BurntSushi/ripgrep) is similar to ag but written in Rust.
+
+See this excellent [comparison](https://beyondgrep.com/feature-comparison/) for more details.
 
 HINT: When in a git repository, instead of using `grep`, try `git grep` to quickly search through the indexed files.
 
