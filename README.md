@@ -1063,6 +1063,114 @@ Generally what the actual build recipe looked like.
 rpm -q --queryformat="%{Spec}" /path/to/src.rpm
 ```
 
+# Lint
+
+There are some tools to verify that the package generated is correct
+and follows the distribution guidelines.
+
+ * [lintian](https://wiki.debian.org/Lintian), for .deb packages
+ * [rpmlint](https://github.com/rpm-software-management/rpmlint), for
+   .rpm packages.
+
+## rpmlint
+
+RPMLint is integrated in the workflow of major rpm based distributions
+like openSUSE or Fedora, but it's also a good practice to run manually
+when you're working with rpm packages.
+
+rpmlint can be used to check .spec files:
+
+```
+$ rpmlint python311.spec
+arning: line 96: Possible unexpanded macro in: Name:           python311%{psuffix}
+============================ rpmlint session starts ============================
+rpmlint: 2.5.0
+configuration:
+    /usr/lib/python3.11/site-packages/rpmlint/configdefaults.toml
+    /etc/xdg/rpmlint/cron-whitelist.toml
+    /etc/xdg/rpmlint/dbus-services.toml
+    /etc/xdg/rpmlint/device-files-whitelist.toml
+    /etc/xdg/rpmlint/licenses.toml
+    /etc/xdg/rpmlint/opensuse.toml
+    /etc/xdg/rpmlint/pam-modules.toml
+    /etc/xdg/rpmlint/permissions-whitelist.toml
+    /etc/xdg/rpmlint/pie-executables.toml
+    /etc/xdg/rpmlint/polkit-rules-whitelist.toml
+    /etc/xdg/rpmlint/scoring.toml
+    /etc/xdg/rpmlint/security.toml
+    /etc/xdg/rpmlint/sudoers-whitelist.toml
+    /etc/xdg/rpmlint/sysctl-whitelist.toml
+    /etc/xdg/rpmlint/systemd-tmpfiles.toml
+    /etc/xdg/rpmlint/users-groups.toml
+    /etc/xdg/rpmlint/world-writable-whitelist.toml
+    /etc/xdg/rpmlint/zypper-plugins.toml
+rpmlintrc:
+    python311-rpmlintrc
+checks: 41, packages: 1
+
+python311.spec: E: unused-rpmlintrc-filter "pem-certificate.*/usr/lib.*/python.*/test/*.pem"
+python311.spec: E: unused-rpmlintrc-filter "devel-file-in-non-devel-package.*/usr/lib.*/python.*/tests/*.c"
+python311.spec: E: unused-rpmlintrc-filter "devel-file-in-non-devel-package.*/usr/lib.*/python.*/test/*.cpp"
+python311.spec: W: invalid-url Source21: bluez-devel-vendor.tar.xz
+ 0 packages and 1 specfiles checked; 3 errors, 1 warnings, 12 filtered, 3 badness; has taken 0.1 s
+```
+
+And also with .rpm binary files:
+
+```
+$ rpmlint binaries/python311-3.11.9-131.1.x86_64.rpm
+=============================================== rpmlint session starts ===============================================
+rpmlint: 2.5.0
+configuration:
+    /usr/lib/python3.11/site-packages/rpmlint/configdefaults.toml
+    /etc/xdg/rpmlint/cron-whitelist.toml
+    /etc/xdg/rpmlint/dbus-services.toml
+    /etc/xdg/rpmlint/device-files-whitelist.toml
+    /etc/xdg/rpmlint/licenses.toml
+    /etc/xdg/rpmlint/opensuse.toml
+    /etc/xdg/rpmlint/pam-modules.toml
+    /etc/xdg/rpmlint/permissions-whitelist.toml
+    /etc/xdg/rpmlint/pie-executables.toml
+    /etc/xdg/rpmlint/polkit-rules-whitelist.toml
+    /etc/xdg/rpmlint/scoring.toml
+    /etc/xdg/rpmlint/security.toml
+    /etc/xdg/rpmlint/sudoers-whitelist.toml
+    /etc/xdg/rpmlint/sysctl-whitelist.toml
+    /etc/xdg/rpmlint/systemd-tmpfiles.toml
+    /etc/xdg/rpmlint/users-groups.toml
+    /etc/xdg/rpmlint/world-writable-whitelist.toml
+    /etc/xdg/rpmlint/zypper-plugins.toml
+checks: 41, packages: 1
+
+python311.x86_64: E: unknown-key edf0d733
+python311.x86_64: E: spelling-error ('readline', '%description -l en_US readline -> breadline, deadline, headline')
+python311.x86_64: E: spelling-error ('usecases', '%description -l en_US usecases -> use cases, use-cases, causes')
+python311.x86_64: E: spelling-error ('tk', '%description -l en_US tk -> kt, t, k')
+python311.x86_64: E: spelling-error ('dbm', '%description -l en_US dbm -> db, dim, dam')
+========== 1 packages and 0 specfiles checked; 5 errors, 0 warnings, 3 filtered, 5 badness; has taken 0.2 s ==========
+```
+
+If you find rpmlint’s output cryptic, the -e switch to it can be used to get more verbose descriptions of most errors and warnings:
+
+```
+$ rpmlint -e "unknown-key"
+unknown-key:
+The package was signed, but with an unknown key. See the rpm --import option
+for more information.
+```
+
+### rpmlint filtering
+
+False positives are inevitable, if a false positive occurred, you have
+several choices to filter the warning or error from rpmlint output:
+
+ * Edit the configuration files, in `/etc/xdg/rpmlint/*toml` or
+   `$XDG_CONFIG_HOME/rpmlint/*toml`.
+ * Use a rpmlintrc file, rpmlint will load any `*.rpmlintrc` or
+   `*-rpmlintrc` located in the same folder as the checked package.
+
+You can find more details about how to configure in the [rpmlint doc](https://github.com/rpm-software-management/rpmlint?tab=readme-ov-file#configuration)
+
 # Post packaging
 
 [pkgdiff](https://lvc.github.io/pkgdiff/) is a good tool to compare and visualize changes in packages.
