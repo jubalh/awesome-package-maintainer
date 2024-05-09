@@ -14,12 +14,12 @@ This guide will (for now) focus on traditional packaging, not on containerized a
 # Introduction
 
 ## Eating your own sushi
-It helps tremendously if you, as a maintainer, are using the software yourself. If you stop using the software, it's best to let someone else that actively uses it to maintain it. This will make your contributions more reliable and more meaningful for yourself. More importantly, it will feel less of a job and be more of a rewarding experience -- you keep software you need in updated state and at same time, you are keeping the entire distribution updated and bug free.
+It helps tremendously if you, as a maintainer, are using the software yourself. If you stop using the software, it's best to let someone else that actively uses it to maintain it. This will make your contributions more reliable and more meaningful for yourself. More importantly, it will feel less of a job and be more of a rewarding experience -- you keep software you need in updated state and at the same time, you are keeping the entire distribution updated and bug-free.
 
 ## Software
 *This will not be an accurate history lesson. We just want to give you some ideas.*
 
-In the early days people were sitting in front of their Slackware machine and when they wanted to install a new software they had to do this by hand.
+In the early days people were sitting in front of their Slackware machine and when they wanted to install a new piece of software they had to do this by hand.
 They got a tarball with the sources from a website, via email or mailing list, from an (FTP) server, from CVS and so on.
 They inspected the sources and learned how to build the software. Some of this software even had Makefiles and were configured with Autotools.
 
@@ -45,25 +45,25 @@ Linux distributions provide packages to make this process much easier. Packages 
  * the upstream source files
  * instructions how to build them
  * listing the dependencies and build dependencies
- * doing additional work like transforming configuration files, restart services etc.
+ * doing additional work like transforming configuration files, restart services, etc.
 
 If you are using a package manager and tell it to install such a package, it will install all the packages that are a dependency of this package as well.
 
 Some dependencies are needed for building the software while others only for running it.
-So you have build time and run time requirements. After you build the package, you will notice that there are parts that do different things. Some parts can be used for building other software while others are used at run-time. So being a clever maintainer, you create multiple binary packages - `ncurses` for run-time part and a `ncurses-devel` package for development headers.
+So you have build-time and runtime requirements. After you build the package, you will notice that there are parts that do different things. Some parts can be used for building other software while others are used at runtime. So being a clever maintainer, you create multiple binary packages - `ncurses` for the runtime part and a `ncurses-devel` package for development headers.
 
 Distributions have different naming regulations regarding such packages. Some distributions don't split packages up in development files (eg. Arch), some call them `-dev` (Debian) some call them `-devel` (openSUSE).
 
 Some distributions and systems provide build recipes (Gentoo, pkgsrc, AUR) while others ship built binaries (Debian, Fedora, openSUSE) ready to be used.
 
-Some distributions require the packager to build and upload the binaries on his own machine others use build systems.
+Some distributions require the packager to build and upload the binaries on their own machine while others use build systems.
 
 To maintain integrity of packages, today these will be usually signed and signatures are verified prior to installation. For example the Open Build Service will check whether the tarball that is in a project actually is the same as the upstream tarball (if you use the URL in the spec file), it can then also check a hash (if provided) and also the author in case upstream signed the tarball with their GPG key.
 It then builds the package for the specified architectures and will sign those packages with repository key.
 
-By the way, the Open Build service can not only build rpms for openSUSE. It can also build packages for Fedora, RHEL, Arch, Debian, Ubuntu, AppImages..
+By the way, the Open Build service can not only build RPMs for openSUSE. It can also build packages for Fedora, RHEL, Arch, Debian, Ubuntu, AppImages..
 
-It's recommend to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) now. Even if you are not interested in becoming a packager for an RPM based distribution this will serve as a good introduction.
+It's recommended to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) now. Even if you are not interested in becoming a packager for an RPM-based distribution this will serve as a good introduction.
 
 ## Who is a package maintainer?
 A packager or a package maintainer is the person who makes this magic happen.
@@ -91,7 +91,7 @@ Here are some ways how you can monitor a project or get notified about new relea
 * Join the `-announce` mailing list of the project.
 * *watch* the project on GitHub/GitLab (a button in the top right corner).
 * Some distributions have their own tooling that reminds you about new releases. Debian uses a [watch file](https://wiki.debian.org/debian/watch).
-* Subscribe to the projects RSS feed. If they use GitHub (and maybe GitLab etc as well) they automatically publish an RSS feed eg. `https://github.com/profanity-im/profanity/releases.atom`. I use the newsboat RSS reader and each morning check for new releases via `newsboat -u ~/watchedprojects.rss`.
+* Subscribe to the projects RSS feed. If they use GitHub (and maybe GitLab as well) they automatically publish an RSS feed eg. `https://github.com/profanity-im/profanity/releases.atom`. I use the newsboat RSS reader and each morning check for new releases via `newsboat -u ~/watchedprojects.rss`.
 * Use [nvchecker](https://github.com/lilydjwg/nvchecker).
 * Monitor their websites via [urlwatch](https://thp.io/2008/urlwatch/).
 * Use the website [fresh code](https://freshcode.club/).
@@ -157,13 +157,13 @@ You can find a list of licenses and their identifier on the [SPDX website](https
 ## Reproducibility
 Since most distributions ship binary packages and attackers could attack the build system, it is useful to have a way to verify these packages.
 Various entities could follow the build instructions and verify whether the result is the same.
-Packagers can help the [Reproducible builds](https://reproducible-builds.org/) project by ensuring their maintained software can be build reproducibly.
+Packagers can help the [Reproducible builds](https://reproducible-builds.org/) project by ensuring their maintained software can be built reproducibly.
 
 # Technical
 
 ## Debuginfo
 Debuginfo packages contain symbols that were stripped from the ELF binaries shipped with the normal packages.
-This reduces size by removing information unimportant for the general user. However once we want to debug this information might be valuable. They also contain the sources code of the binary.
+This reduces size by removing information unimportant for the general user. However once we want to debug this information might be valuable. They also contain the source code of the binary.
 
 ## Debuginfod
 [Debuginfod](https://sourceware.org/elfutils/Debuginfod.html) is a client/server that automatically distributes elf/dwarf/source-code from servers to clients such as debuggers across HTTP.
@@ -271,7 +271,7 @@ quilt new tiff-security-fix-1.patch
 Edit the files that need fixing and create a patch:
 ```
 quilt edit libtiff/tif_dirwrite.c
-quilt header -e  #at the top of the header we want some explanation/references etc
+quilt header -e  # at the top of the header we want some explanation/references
 quilt refresh
 ```
 
@@ -362,12 +362,12 @@ break
 
 ## meld
 [Meld](https://meldmerge.org/) is a GUI tool for comparing two files or directories.
-It also let's you easily merge changes.
+It also lets you easily merge changes.
 
 ### Example
 We checked out two packages from the [openSUSE OBS](https://build.opensuse.org/).
 One is `X11:LXQt/lxqt-about` the other `X11:LXQt:git/lxqt-about`.
-The difference is that one will be about the stable release of lxqt-about and the other will always be rebuild with the latest version of upstream git master.
+The difference is that one will be about the stable release of lxqt-about and the other will always be rebuilt with the latest version of upstream git master.
 
 We want to find out the differences and also merge/pull/push changes from the various files.
 
@@ -473,7 +473,7 @@ And then we continue to step through the program. At the end we look at the resu
 ### Already running programs
 The above example started the program we wanted to investigate.
 If the program is already running you cat attach to it via its PID.
-Use `pidof` of `ps` to find out the PID.
+Use `pidof` or `ps` to find out the PID.
 
 ```
 $ pidof vi
@@ -650,7 +650,7 @@ They display information about object files and can be used to view an executabl
 # The packaging process
 Even if you are not interested in RPM, we would like to suggest to read the [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) since it gives a good overview and introduction.
 
-Then see the following system specific chapters here according to your interest.
+Then see the following system-specific chapters here according to your interest.
 Generally we would recommend to skim also over the ones that are not your main focus.
 
 ## Arch Linux
@@ -678,7 +678,7 @@ git send-email --smtp-debug --smtp-ssl-cert-path "" --to="buildroot@busybox.net"
 ```
 
 ## Debian
-For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/) has all important details, pay especial attention to the [Debian Policy](https://www.debian.org/doc/debian-policy/).
+For Debian packaging, [Debian Developer's Corner](https://www.debian.org/devel/) has all important details, pay special attention to the [Debian Policy](https://www.debian.org/doc/debian-policy/).
 
 * [Debian Developer's Corner](https://www.debian.org/devel/)
 * [Debian Policy](https://www.debian.org/doc/debian-policy/)
@@ -802,7 +802,7 @@ Then, in order:
 * [RPM Packaging Guide](https://rpm-packaging-guide.github.io/) - about the basics of RPM packaging
 * Read the RPM section of this readme as well.
 
-[maintainers.opensuse.org](https://maintainer.opensuse.org/) is a helpful tool listing all the maintainers of a package, comparing the versions in differnt distributions, pointing to the devel project etc.
+[maintainers.opensuse.org](https://maintainer.opensuse.org/) is a helpful tool listing all the maintainers of a package, comparing the versions in different distributions, pointing to the devel project, etc.
 
 ### Setup
 Install
@@ -849,7 +849,7 @@ yourusername ALL = NOPASSWD: /usr/bin/osc
 
 ### Multiple OBS instances
 
-You can asign aliases to OBS instances.
+You can assign aliases to OBS instances.
 
 Edit `$HOME/.config/osc/oscrc`:
 
@@ -1074,15 +1074,15 @@ and follows the distribution guidelines.
 
 ## rpmlint
 
-RPMLint is integrated in the workflow of major rpm based distributions
+RPMLint is integrated in the workflow of major RPM-based distributions
 like openSUSE or Fedora, but it's also a good practice to run manually
-when you're working with rpm packages.
+when you're working with RPM packages.
 
 rpmlint can be used to check .spec files:
 
 ```
 $ rpmlint python311.spec
-arning: line 96: Possible unexpanded macro in: Name:           python311%{psuffix}
+warning: line 96: Possible unexpanded macro in: Name:           python311%{psuffix}
 ============================ rpmlint session starts ============================
 rpmlint: 2.5.0
 configuration:
