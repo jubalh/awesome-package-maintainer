@@ -412,6 +412,7 @@ The following tools will mostly be about debugging.
 
 ## gdb
 [gdb](https://www.gnu.org/software/gdb) is a debugger.
+[seer](https://github.com/epasveer/seer) is a nice GUI frontend for gdb.
 
 * [How does gdb work?](https://jvns.ca/blog/2016/08/10/how-does-gdb-work/) by [jvns](https://github.com/jvns).
 
