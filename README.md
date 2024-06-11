@@ -622,13 +622,17 @@ vim-nox11 17582 user  cwd    DIR   0,43       82 6826592 /home/user/awesome-pack
 vim-nox11 17582 user    5u   REG   0,43    16384 7061198 /home/user/awesome-package-maintainer/.README.md.swp
 ```
 
-## ldd
+## ldd and libtree
 ldd lists the shared libraries required by a program.
 
 ```
 ldd ./src/myprog
 	libcurl.so.4 => /lib64/libcurl.so.4 (0x00007f36e4297000)
 ```
+
+There is also [libtree](https://github.com/haampie/libtree) which is doing the same but displays it as a tree.
+
+![Screenshot of libtree](https://github.com/haampie/libtree/blob/master/doc/screenshot.png?raw=true)
 
 ## valgrind
 Valgrind is a suite of tools for profiling and debugging. We are mostly interested in the memory error detector functionality of it.
