@@ -183,6 +183,7 @@ Read the chapter [Using systemd-coredump to debug application crashes](https://d
 * [How to get a core dump for a segfault on Linux](https://jvns.ca/blog/2018/04/28/debugging-a-segfault-on-linux/) by [jvns](https://github.com/jvns).
 * [Debug a crash after it happened – without knowing about it upfront](https://dominique.leuenberger.net/blog/2014/04/debug-a-crash-after-it-happened-without-knowing-about-it-upfront/) by [DimStar77](https://github.com/DimStar77).
 * [Per service ulimits](https://nordisch.org/posts/per-service-ulimits/) by [darix](https://github.com/darix).
+* [Arch Linux Wiki on Coredumps](https://wiki.archlinux.org/title/Core_dump)
 
 ## Stack Trace
 A stack trace, or backtrace, is a list of functions that are active in a running program.
