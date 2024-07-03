@@ -177,6 +177,8 @@ A coredump is a file which contains the memory of a process. We can configure ou
 A segfault happens when a program tries to access memory that it should not access.
 Read up on how to configure core dumps on your system. And check `ulimit`.
 
+Read the chapter [Using systemd-coredump to debug application crashes](https://documentation.suse.com/sles/15-SP3/html/SLES-all/cha-tuning-systemd-coredump.html) from SUSEs [System Analysis and Tuning Guide](https://documentation.suse.com/sles/15-SP3/html/SLES-all/book-tuning.html) guide which describes how to use [systemd-coredump](https://www.freedesktop.org/software/systemd/man/latest/systemd-coredump.html) and [coredumbctl](https://www.freedesktop.org/software/systemd/man/latest/coredumpctl.html).
+
 * [Linux core dump analysis](https://sergioprado.blog/linux-core-dump-analysis/) by [sergioprado](https://github.com/sergioprado).
 * [How to get a core dump for a segfault on Linux](https://jvns.ca/blog/2018/04/28/debugging-a-segfault-on-linux/) by [jvns](https://github.com/jvns).
 * [Debug a crash after it happened – without knowing about it upfront](https://dominique.leuenberger.net/blog/2014/04/debug-a-crash-after-it-happened-without-knowing-about-it-upfront/) by [DimStar77](https://github.com/DimStar77).
