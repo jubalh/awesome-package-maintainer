@@ -246,6 +246,8 @@ patch -p1 < my.patch
 ## quilt
 [quilt](http://savannah.nongnu.org/projects/quilt) is a tool for managing many patches.
 
+We recommend to read [How To Survive With Many Patches](http://git.savannah.gnu.org/cgit/quilt.git/plain/doc/quilt.pdf) by Andreas Gr¨unbacher.
+
 `quilt series` shows a list of all patches.
 `quilt push/pop` navigate the patch stack up and down. Before a patch is applied, all affected files are backed up to the .pc/patch directory.
 
