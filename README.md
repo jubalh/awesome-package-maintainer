@@ -291,6 +291,13 @@ After initializing of a source tree, use `quilt push X`, where `X` stands for
 
 A shortcut here to make sure that the file is tracked by quilt before editing it, you can use `quilt edit $(file)`.
 
+### Misc
+Before the `refresh` you could also check which files will be included in the patch, to confirm you did everything as you intended to, with `quilt files`.
+
+To confirm the changes themselves you can use `quilt diff`.
+
+And to import a patch from another location you could use `quilt import ~/Downloads/someones.patch`.
+
 ## wiggle
 [wiggle](https://github.com/neilbrown/wiggle/) applies rejected patches and performs word-wise diffs.
 So it will apply everything even things that may not be correct. It is quite powerful but needs extra careful checking.
