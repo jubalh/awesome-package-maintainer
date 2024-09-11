@@ -810,6 +810,7 @@ Start by creating an account on:
 * the issue tracker: https://bugzilla.opensuse.org/
 * the openSUSE Open Build Service (OBS): https://build.opensuse.org/
 * Join `#opensuse-factory` on Libera.Chat
+* Subscribe to https://lists.opensuse.org/archives/list/factory@lists.opensuse.org/
 
 Then, in order:
 * [Build Service Tutorial](https://en.opensuse.org/openSUSE:Build_Service_Tutorial) - follow along style introduction
