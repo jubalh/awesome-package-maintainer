@@ -122,7 +122,6 @@ If the update is a point release with bug fixes only, you need to consider wheth
 As a packager you need to be familiar with the particular bugtracker your distribution uses.
 
 [Bugzilla](https://www.bugzilla.org/) is used by:
-* [Arch Linux](https://bugs.archlinux.org/)
 * [Fedora](https://bugzilla.redhat.com/)
 * [Gentoo](https://bugs.gentoo.org/)
 * [openSUSE](https://bugzilla.opensuse.org/)
@@ -136,6 +135,7 @@ Launchpad is used by:
 
 [GitLab](https://about.gitlab.com/) is used by:
 * [Alpine](https://gitlab.alpinelinux.org/alpine/aports/-/issues)
+* [Arch Linux](https://bugs.archlinux.org/) (used Bugzilla [before](https://lists.archlinux.org/hyperkitty/list/arch-dev-public@lists.archlinux.org/thread/WYXDTJ3TR2DWRQCDZK44BQDH67IDVGTS/))
 
 Additionally it would be good if you are used to the issue trackers used by the programs you maintain.
 This might be on [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), [Sourceforge](https://sourceforge.net/), [sourcehut](https://sr.ht/) or just a mailing list or custom solution.
