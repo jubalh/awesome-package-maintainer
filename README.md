@@ -1059,6 +1059,7 @@ rpm -ql nudoku nudoku-debuginfo
 * [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
 * [RPM Packaging Tutorial](http://www.mac-vicar.eu/tutorials/rpm-packaging/index.html) by [dmacvicar](https://github.com/dmacvicar).
 * [SUSE documentation on rpm and rpmbuild](https://documentation.suse.com/sles/15-SP1/html/SLES-all/cha-sw-cl.html#sec-rpm).
+* [Spec file format](https://rpm-software-management.github.io/rpm/manual/spec.html)
 
 ### Snippets and tricks
 
