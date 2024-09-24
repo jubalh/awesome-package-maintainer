@@ -91,7 +91,7 @@ Here are some ways how you can monitor a project or get notified about new relea
 * Join the `-announce` mailing list of the project.
 * *watch* the project on GitHub/GitLab (a button in the top right corner).
 * Some distributions have their own tooling that reminds you about new releases. Debian uses a [watch file](https://wiki.debian.org/debian/watch).
-* Subscribe to the projects RSS feed. If they use GitHub (and maybe GitLab as well) they automatically publish an RSS feed eg. `https://github.com/profanity-im/profanity/releases.atom`. I use the newsboat RSS reader and each morning check for new releases via `newsboat -u ~/watchedprojects.rss`.
+* Subscribe to the projects RSS feed. If they use GitHub (and maybe GitLab as well) they automatically publish an RSS feed eg. `https://github.com/profanity-im/profanity/releases.atom`. I use the [newsboat](https://newsboat.org/) RSS reader and each morning check for new releases via `newsboat -u ~/watchedprojects.rss`.
 * Use [nvchecker](https://github.com/lilydjwg/nvchecker).
 * Monitor their websites via [urlwatch](https://thp.io/2008/urlwatch/).
 * Use the website [fresh code](https://freshcode.club/).
