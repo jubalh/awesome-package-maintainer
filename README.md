@@ -1054,6 +1054,7 @@ rpm -ql nudoku nudoku-debuginfo
 * [OSC helpers for lazy packagers](https://nordisch.org/posts/osc-helpers-for-lazy-packagers/) by [darix](https://github.com/darix).
 * [Debug a crash after it happened – without knowing about it upfront](https://dominique.leuenberger.net/blog/2014/04/debug-a-crash-after-it-happened-without-knowing-about-it-upfront/) by [DimStar77](https://github.com/DimStar77).
 * [How to find, debug and fix reproducibility issues in openSUSE OBS package build results](https://github.com/bmwiedemann/reproducibleopensuse/blob/master/howtodebug) by [bmwiedemann](https://github.com/bmwiedemann).
+* [RPM Spec files conditionals and forcing package versions](https://nordisch.org/posts/rpm-spec-files-conditionals-and-forcing/) by [darix](https://github.com/darix).
 
 ## RPM
 * [RPM Packaging Guide](https://rpm-packaging-guide.github.io/).
