@@ -286,6 +286,19 @@ Instead of `quilt edit file` you could also use `quilt add file` and `$EDITOR fi
 
 Now we have a new file `tiff-security-fix-1.patch` which we can apply in the spec file.
 
+### Naming a patch
+As a best practise about *naming* a patch we recommend to do the following for openSUSE:
+`shadow-1.2-boo123456-print-to-stderr.patch`
+
+The first part is the name of the package.
+Followed by the version.
+Followed by a reference to bugzilla (bugzilla.opensuse.org -> boo) and the bugnumber.
+Instead of that we also use CVE20240101.
+If no bug exists or CVE is assigned this part isn't present.
+Followed by a short description of what the patch does. So that you as the maintainer can remember it and don't have to open each file to understand what you were doing there.
+
+These recommendations make it also easier to categorize and search for specific patches.
+
 ### Edit an existing patch
 After initializing of a source tree, use `quilt push X`, where `X` stands for the number of patches you want to apply. Use this command in order to get to the position of the patch you want to alter. Afterwards just edit the file corresponding to the patch and refresh this patch. If you edit a file that isn't contained in the patch, remember to add this file by quilt add.
 
