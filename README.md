@@ -299,6 +299,49 @@ Followed by a short description of what the patch does. So that you as the maint
 
 These recommendations make it also easier to categorize and search for specific patches.
 
+### The patch header
+With `quilt header -e` you can edit the header of the patch. Which you of course can also do manually in your editor in the patch file.
+
+Sometimes you don't write the patch yourself but use a commit from git.
+For example you do:
+
+```
+wget https://github.com/shadow-maint/shadow/commit/01f6258df744d935c4e6bbb4a4e9774d95298473.patch -O shadow-man-prefix.patch
+```
+
+It will have the following header:
+```
+From 01f6258df744d935c4e6bbb4a4e9774d95298473 Mon Sep 17 00:00:00 2001
+From: Michael Vetter <jubalh@iodoru.org>
+Date: Fri, 20 Oct 2023 15:22:35 +0200
+Subject: [PATCH] man: document --prefix option in chage, chpasswd and passwd
+
+Support for `--prefix` was added in
+https://github.com/shadow-maint/shadow/pull/714 and is available since
+shadow 4.14.0.
+
+Close https://github.com/shadow-maint/shadow/issues/822
+---
+ man/chage.1.xml    | 15 +++++++++++++++
+ man/chpasswd.8.xml | 15 +++++++++++++++
+ man/passwd.1.xml   | 15 +++++++++++++++
+ 3 files changed, 45 insertions(+)
+```
+
+If you use this patch exactly like it is this is fine.
+In case you need to do adjustments we recommend to mention this.
+For small adjustments I usually write:
+```
+quilt header -e
+
+Based on 01f6258df744d935c4e6bbb4a4e9774d95298473
+```
+
+For more complex ones I describe how my changes differ from the upstream patch.
+If my patch is based on several upstream commits I do list each of them.
+
+These best practises might help you in case you did a mistake when backporting a patch.
+
 ### Edit an existing patch
 After initializing of a source tree, use `quilt push X`, where `X` stands for the number of patches you want to apply. Use this command in order to get to the position of the patch you want to alter. Afterwards just edit the file corresponding to the patch and refresh this patch. If you edit a file that isn't contained in the patch, remember to add this file by quilt add.
 
