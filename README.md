@@ -1060,6 +1060,8 @@ So we can see that another dependency isn't met and can make a decision to conti
 Somtimes version upgrades are acceptable, sometimes introduction of a new package is acceptable, sometimes you need to follow certain rules to get them approved.
 This process can help you find out how suitable it is to upgrade a package in a released version of a distribution.
 
+Another way of achieving this would be to create a subproject on your OBS home, copy the required packages over and make the corresponding changes in them.
+
 ### Services
 OBS services are helpful to package git packages for example.
 Or Rust packages that use vendored tarballs.
