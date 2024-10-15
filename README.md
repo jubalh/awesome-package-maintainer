@@ -1011,6 +1011,55 @@ This is especially helpful because you can also run tests against other targets.
 
 With the `--prefer-pkgs` flag you can name a directory and `osc` build prefer the rpms inside over the ones from the official repo.
 
+### Building against different distributions
+
+Let's say you have a package in a devel project or Factory and want to test whether it builds for another distribution, lets say for SLE15 SP6:
+
+```
+osc co network:messaging:xmpp/profanity
+cd network:messaging:xmpp/profanity
+osc build --alternative-project=SUSE:SLE-15-SP6:Update standard --clean
+...
+unresolvable: nothing provides libsignal-protocol-c-devel >= 2.3.2
+      nothing provides libstrophe-devel >= 0.12.2
+```
+
+Oops! The xmpp library that profanity is using isn't up to date or not existing.
+
+Luckily we can just check that out, build it, and then tell OBS to use the built package:
+
+```
+osc co network:messaging:xmpp/libstrophe
+cd network:messaging:xmpp/libstrophe
+osc build --alternative-project=SUSE:SLE-15-SP6:Update standard --clean -k ~/packages 
+```
+
+The `-k` will *keep* the packages in `~/packages` after building:
+
+```
+ls ~/packages
+libstrophe-0.13.1-0.src.rpm  libstrophe-devel-0.13.1-0.x86_64.rpm  libstrophe0-0.13.1-0.x86_64.rpm
+```
+
+Let's switch back and build profanity:
+
+```
+cd ../profanity
+osc build --alternative-project=SUSE:SLE-15-SP6:Update standard --clean -p ~/packages/
+```
+
+The `-p` will tell *prefer* the packages from `~/packages`.
+
+When we now try to build the binary it will tell us:
+
+```
+unresolvable: nothing provides libsignal-protocol-c-devel >= 2.3.2
+```
+
+So we can see that another dependency isn't met and can make a decision to continue this path or not.
+Somtimes version upgrades are acceptable, sometimes introduction of a new package is acceptable, sometimes you need to follow certain rules to get them approved.
+This process can help you find out how suitable it is to upgrade a package in a released version of a distribution.
+
 ### Services
 OBS services are helpful to package git packages for example.
 Or Rust packages that use vendored tarballs.
