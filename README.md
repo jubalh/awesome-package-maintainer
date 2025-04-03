@@ -880,6 +880,8 @@ Then, in order:
 
 [maintainers.opensuse.org](https://maintainer.opensuse.org/) is a helpful tool listing all the maintainers of a package, comparing the versions in different distributions, pointing to the devel project, etc.
 
+openSUSE is currently in the process of switching to git instead of obs. See [this](https://en.opensuse.org/openSUSE:OBS_to_Git) wiki page for progress and current situation.
+
 ### Setup
 Install
 * [grc](https://github.com/garabik/grc) (`zypper in grc`) to have colorized and more readable output when building with `grc osc build`.
