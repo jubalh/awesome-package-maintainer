@@ -471,6 +471,9 @@ perf is a tool that can be used to analyze performance and trace functions.
 [magic-trace](https://github.com/janestreet/magic-trace) is similar to perf.
 The key difference from perf is that instead of sampling call stacks throughout time, magic-trace uses Intel Processor Trace to snapshot a ring buffer of all control flow leading up to a chosen point in time. Then, you can explore an interactive timeline of what happened.
 
+## More tools
+More tools and their usage can be found in Johannst's [notes](https://johannst.github.io/notes/trace_profile/index.html). He mentions strace, ltrace, perf OProfile, callgrind, vtune, tracy and more.
+
 # Debugging
 The following tools will mostly be about debugging.
 
